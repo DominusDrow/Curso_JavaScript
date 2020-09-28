@@ -1,8 +1,11 @@
 alert("Hola mundo");
 
-const button = document.createElement('button'); 
-button.type = 'button'; 
-button.innerText = 'Haz Click'; 
-document.body.appendChild(button); 
+function sumar() {
+	
+	var elem1= document.getElemntById("num1").value;
+	var elem2= document.getElemntById("num2").value;
+	var suma = parsInt(elem1)+parsInt(elem2);
 
-document.write("HOla mundo ");
+	alert("la suma es "+suma);
+
+}
