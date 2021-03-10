@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<html>
+
+<body>
+
+    <script type="text/javascript">
+
+        //Objetos 
+        console.log("hola mundo");
+
+        const Alfredo = {
+            nombre:"Alfredo",
+            apellido: "Vasquez",
+            correo: "aovl12@hotmail,com",
+            hablar:function(){
+                console.log("Hola xd");
+            },
+            presentar:function(){
+                console.log(`Hola soy ${this.nombre} ${this.
+                    apellido} contactame en ${this.correo}`);
+            },
+            pasatiempos:{
+                deporte: "nunguno xd",
+                cultura: "leer",
+                extras: "freestyle"
+            },
+            gustos:["manga","anime","comics","videojugos"]
+
+        }
+        
+        console.log(Alfredo);
+        console.log(Alfredo.pasatiempos.deporte);
+        console.log(Alfredo.gustos[1]);
+        Alfredo.hablar();
+        Alfredo.presentar();
+
+        console.log(Object.keys(Alfredo));
+        console.log(Object.values(Alfredo));
+        console.log(Alfredo.hasOwnProperty("nombre"));
+
+        //Operador ternario:
+        let edad=19;
+        let eresMayor= (edad>=18)
+            ?"Eres mayor de edad"
+            :"Eres menor de edad";
+        
+        console.log(eresMayor);
+
+
+    </script>
+
+
+</body>
+
+</html>
