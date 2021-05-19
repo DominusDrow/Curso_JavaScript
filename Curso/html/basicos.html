@@ -4,7 +4,7 @@
 <html>
 
 <body>
-
+    
     <script type="text/javascript">
 
         //Objetos 
@@ -45,34 +45,76 @@
         let eresMayor= (edad>=18)
             ?"Eres mayor de edad"
             :"Eres menor de edad";
-        
+
         console.log(eresMayor);
 
         //ciclos:
 
         //permite recorer cualquier cosa que sea iterable (arreglos,strings, etc)
-        for (const iterator of object) {
-            
-        }
+        //for (const iterator of object) {   }
 
-        //permite recorrer cada una de los propiedades 
-        //de un objeto primitivo
-        for (const key in object) {
-           
-        }
-
-        let como ="como";
-
-        if(como!=1){
-            como="hola como"
-        }
-
+        //permite recorrer cada una de los propiedades de un objeto primitivo
+        //for (const key in object) { }
 
         let ia = "soy sophia";
 
         console.log(ia);
 
+        //manejo de errores
+
+        try {
+            console.log("aqui se ejecuta el bloque de codigo");
+            let  numero="y";
+
+            if(isNaN(numero)){ //funcion que comprueba que el parametro sea un numero
+                throw new Error("si algo sale mal se lanza un error") 
+            }
+        } catch (error) {
+            console.log(error); //se imprime  el error
+        }finally{
+            console.log("\n lo que se ejecuta independientemente si hay errores\n");
+        }   
+
+
+        //diferentes formas de comparar 
+
+        let elemento= 3;
+
+        let res = 3;   // 1 igual funciona como asignacion
+
+        let res1 = (res=='3')     //2 iguales funcionan como comparadores de contenido
+            ? "el caracter es 3"
+            : "el caracter no es 3";
+
+        let res2 = (res===3)  // 3 iguales funcionan como comparardor de variables (int con int )
+            ? res
+            : 0;
+
+
+
+        //break y continue
+
+        const nums=[1,2,3,4,5,6,7,8,9,0];
+
+        for(let i=0;i<nums.length;i++){
+            if(i===4){
+                break;      // detiene el ciclo cuando llegue a 4
+            }
+            console.log(nums[i]);
+        }
+
+        console.log("\n");
+
+        for(let i=0;i<nums.length;i++){
+            if(i===4){
+                continue;   // se salta la iteracion numero 4
+            }
+            console.log(nums[i]);
+        }
+
         
+
+
 
     </script>
 
