@@ -112,6 +112,31 @@
             console.log(nums[i]);
         }
 
+
+        //Destructuracion (nueva caracteristica)
+        
+        const array = [1,2,3];
+        
+        //sin usar destructuracion 
+        let uno= array[0];
+        let dos= array[1];
+        let tres= array[2];
+        console.log(uno,dos,tres);
+
+        //usando destructuracion
+        let [one,two,three]=array;
+        console.log(one,two,three);
+
+        
+        //destructuracion con objetos
+        const persona={
+            nombre:"Alfredo",
+            apellido:"Vasquez",
+            age:32
+        }
+
+        let {age,nombre,apellido}=persona;  //no importa el orden en el que se pongoan
+        console.log(nombre,apellido,edad);  //siempre y cuando correspondan a los parametros
         
 
 
