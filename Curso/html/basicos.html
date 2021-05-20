@@ -127,7 +127,7 @@
         let [one,two,three]=array;
         console.log(one,two,three);
 
-        
+
         //destructuracion con objetos
         const persona={
             nombre:"Alfredo",
@@ -140,6 +140,34 @@
         
 
 
+        
+        //nueva escritura de objetos literales
+
+        let nombrep="chispa",
+        edadp=3;
+
+        //como se escribe clasicamente
+        const perro = {
+            nombrep:nombrep,
+            edadp:edadp,
+            ladrar:function(){
+                console.log("auuuu!");
+            }
+        }
+        console.log(perro);
+        perro.ladrar();
+
+
+        //como se escribe ahora
+        const dog = {
+            nombrep,        //se abrevia y toma las variables definidas en el ambito
+            edadp,
+            ladrar(){       //se entiende que es una funcion 
+                console.log("auu auu!");
+            }
+        }
+        console.log(dog);
+        dog.ladrar();
 
     </script>
 
