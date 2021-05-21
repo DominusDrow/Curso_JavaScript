@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<html>
+
+<body>
+    
+    <script type="text/javascript">
+
+        //Destructuracion (nueva caracteristica)
+        
+        const array = [1,2,3];
+        
+        //sin usar destructuracion 
+        let uno= array[0];
+        let dos= array[1];
+        let tres= array[2];
+        console.log(uno,dos,tres);
+
+        //usando destructuracion
+        let [one,two,three]=array;
+        console.log(one,two,three);
+
+
+        //destructuracion con objetos
+        const persona={
+            nombre:"Alfredo",
+            apellido:"Vasquez",
+            age:32
+        }
+
+        let {age,nombre,apellido}=persona;  //no importa el orden en el que se pongoan
+        console.log(nombre,apellido,age);  //siempre y cuando correspondan a los parametros
+        
+
+
+        
+        //nueva escritura de objetos literales
+
+        let nombrep="chispa",
+        edadp=3;
+
+        //como se escribe clasicamente
+        const perro = {
+            nombrep:nombrep,
+            edadp:edadp,
+            ladrar:function(){
+                console.log("auuuu!");
+            }
+        }
+        console.log(perro);
+        perro.ladrar();
+
+
+        //como se escribe ahora
+        const dog = {
+            nombrep,        //se abrevia y toma las variables definidas en el ambito
+            edadp,
+            ladrar(){       //se entiende que es una funcion 
+                console.log("auu auu!");
+            }
+        }
+        console.log(dog);
+        dog.ladrar();
+
+        
+        
+        // parametros REST y operador spread
+
+        //sin parametros REST
+        function sumar(a,b){
+            return a+b;
+        }
+
+        //con parametros REST
+        function suma(a,b,...c){    //podemos recibir parametros infinitos
+            let resultado=a+b;
+
+            c.forEach(function(n){
+                resultado+=n;
+            })
+
+            return resultado;
+        }
+        
+        console.log(suma(3,4));
+        console.log(suma(3,4,4));
+        console.log(suma(3,4,4,20)); //podemos poner infinitos parametros
+
+
+    </script>
+
+ 
+</body>
+
+</html>
