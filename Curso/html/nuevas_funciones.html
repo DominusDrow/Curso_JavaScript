@@ -67,6 +67,7 @@
         
         // parametros REST y operador spread
 
+
         //sin parametros REST
         function sumar(a,b){
             return a+b;
@@ -87,6 +88,20 @@
         console.log(suma(3,4,4));
         console.log(suma(3,4,4,20)); //podemos poner infinitos parametros
 
+
+
+        //operardor spread
+
+        //normalmente para juntar dos arreglos
+        const array1=[3,3,2],
+        array2=[3,43,4];
+
+        const array3=[array1,array2];
+
+
+        //con el operador spread
+        const array4=[...array1,...array2];
+        
 
     </script>
 
