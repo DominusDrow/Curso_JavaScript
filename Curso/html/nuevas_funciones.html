@@ -97,11 +97,67 @@
         array2=[3,43,4];
 
         const array3=[array1,array2];
-
+        console.log(array3);
 
         //con el operador spread
-        const array4=[...array1,...array2];
+        const array4=[...array1,...array2]; //permite tener UN solo arreglo los valores 
+        console.log(array4);                //de ambos arreglos
+
+
+
+
+        //arrow funtions
+        //principalmente hacen la sintxis mas visual
+
         
+        //funcion declarada
+        saludar("Alfredo");         //se puede invocar antes y despues
+        function saludar(nombre){
+            console.log(`hola ${nombre}`);
+        }
+        saludar("Omar");
+
+
+        //funcion anomima
+        const saludo=function(nombre){
+            console.log(`Hola ${nombre}`);
+        }
+        saludo("Anonimo");          //solo se pueden invocar despues
+        
+
+        //arrow funtion
+        const saludando = nombre=> console.log(`Ola ${nombre}`);
+
+        saludando("Ricardo");
+        //se pueden omitir los parentesis si es un solo parametro
+        //y las llaves si es solo una linea de cuerpo
+
+
+        const sumando = (a,b) => a+b;
+
+        console.log(sumando(3,4));
+        //se puede omitir el return 
+
+
+       //un metodo normal reconoce el ambito del objeto en el que esta
+        const animal= {
+            nombre:"perro",
+            comer(){
+                console.log(this);
+            }
+        }
+        animal.comer();
+
+        //una arrow funtion reconoce con (this) el ambito heredado
+        const humano={
+            nombre:"Hombre",
+            hablar:()=>{
+                console.log(this);
+            }
+        }
+        humano.hablar();
+
+
 
     </script>
 
