@@ -113,6 +113,73 @@
         }
 
 
+
+        //prototipos
+
+        //si se van a crear varios objetos parecidos 
+        //se usa un prototipo constructor 
+
+        function Animal(nombre,genero){ //se pasan los atributos como si fuera un constructor
+            this.nombre=nombre,
+            this.genero=genero,
+            this.sonido=function(){     //no se pueden utilizar arrowfuntions ni nueva escritura
+                console.log("waow waow");
+            };         
+        }
+
+        const perro = new Animal("chispa","H");
+        const gato = new Animal("miau","M");
+
+        console.log(perro);
+        console.log(gato);
+
+
+        //para obtinizar y no duplicar metodos
+
+        function AnimalO (nombre,genero){
+            this.nombre=nombre,
+            this.genero=genero;
+        }   
+
+        //se sacan los metodos para asignarlos al prototipo constructor
+        AnimalO.prototype.sonido= function(){
+            console.log("auu auuuu au");
+        }
+
+
+        const ave = new AnimalO("gaviota","H");
+        const defin = new AnimalO("delfi","M");
+
+        console.log(ave);
+        console.log(defin);
+
+
+
+        //herencia prototipica
+
+        //creamaos un prototipo que herede de AnimalO
+        function Perro (nombre,genero,raza){
+            this.super=AnimalO,
+            this.super(nombre,genero),
+            this.raza=raza;
+        }
+
+        //hacemos la herencia aqui
+        Perro.prototype=AnimalO;        //el prototopo va a ser AnimalO en vez de Object
+
+        //creamos un metodo especifico para Perro
+        Perro.prototype.ladrar= function(){
+            console.log("Guauuu Guaau");
+        }
+
+        const SnoopDog = new Perro("SnoopDog","M","doverman");
+        console.log(SnoopDog);
+    
+
+
+        
+
+
     </script>
 
  
