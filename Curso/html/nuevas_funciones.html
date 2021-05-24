@@ -157,6 +157,53 @@
         }
         humano.hablar();
 
+
+        
+        //clases y herencia 
+
+        class Animal{
+            constructor(nombre,genero){
+                this.nombre=nombre;
+                this.genero=genero;
+            }
+
+            saludar(){
+                console.log("\nhola soy un animal");
+            }
+            
+            sonido(){
+                console.log("*sonidos de animal*");
+            }
+        }
+
+        const chispa = new Animal("chispa","H");
+        chispa.saludar();
+        chispa.sonido();
+        console.log(chispa);
+      
+
+        class Perro extends Animal{
+            constructor(nombre,genero,raza){
+                super(nombre,genero);
+                this.raza=raza;
+            }
+
+            ladrar(){
+                console.log("gauuuu gauuuuu");
+            }
+        }
+
+        const scoby = new Perro("Scoby","M","Gran Danes");
+        scoby.saludar();
+        scoby.ladrar();
+        console.log(scoby);
+
+
+
+        //geters, seters y estaticos
+
+
+
         
 
     </script>
