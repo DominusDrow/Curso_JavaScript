@@ -202,6 +202,37 @@
 
         //geters, seters y estaticos
 
+        class sujeto{
+            constructor(nombre,edad){
+                this.nombre=nombre;
+                this.edad=edad;
+                this.altura=null;
+            }
+
+            presentar(){
+                console.log(`Hola soy ${nombre}`);
+            }
+
+            // metodo estatico 
+            static queSoy(){
+                console.log("\nsoy una persona ");
+            }
+            
+            //asi se declarar los setters y getters
+            set setAltura(altura){
+                this.altura=altura;
+            }
+            get getAltura(){
+                return this.altura;
+            }
+        }   
+
+        sujeto.queSoy();
+
+        const sujeto1=new sujeto("Alfredo",20);
+        //los setters y getters se comportan como atrubyutos
+        sujeto1.altura=22.1;
+        console.log(sujeto1.altura);
 
 
         
