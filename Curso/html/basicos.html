@@ -244,10 +244,29 @@
         console.log(Math.floor(3.8));   //al anterior numero entero
         console.log(Math.round(3.5));
         console.log(Math.random());
+        console.log("\n");
 
 
+        //operadores corto circuito 
 
-        //
+        // || carga el valor de la izq si es verdadero
+
+        console.log("cadena" || "valor derecha");
+        console.log(null || "valor derecha");
+        console.log("\n");
+        // && (lo contrario) cuando el valor de la izq es falso
+
+        console.log(NaN && "valor derecha");
+        console.log("izq" && "valor derecha");
+
+
+        
+        //funciones con parametros por default
+        
+        function prueba(nombre="desconocido"){
+            console.log("hola ",nombre);
+        }
+
 
 
     </script>
