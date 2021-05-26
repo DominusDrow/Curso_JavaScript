@@ -174,11 +174,39 @@
 
         const SnoopDog = new Perro("SnoopDog","M","doverman");
         console.log(SnoopDog);
-    
-
-
         
 
+        
+        //objeto console 
+        
+        console.error("Esto es un error");
+        console.warn("esto es una advertencia");
+        console.log(console);
+
+        const objeto ={
+            nombre:"objeto",
+            funcion:"prueba",
+            c:3
+        }
+
+        console.table(objeto);
+
+        console.groupCollapsed("cosas pendientes");
+        console.log("invertir la suma");
+        console.log("comprar mi celular");
+        console.log("sacar mi tarjeta de credito");
+        console.groupEnd();
+
+
+        console.time("tiempo");
+
+        for (let i = 0; i <100000; i++) {
+           let j=i;         
+        }
+
+        console.timeEnd("tiempo");
+        
+        
 
     </script>
 
