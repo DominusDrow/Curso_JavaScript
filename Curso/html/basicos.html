@@ -176,6 +176,7 @@
         console.log(SnoopDog);
         
 
+
         
         //objeto console 
         
@@ -189,7 +190,11 @@
             c:3
         }
 
+        console.log("hola soy %s y tengo %d","alfred0",20);
+
         console.table(objeto);
+
+        //console.dir(document);
 
         console.groupCollapsed("cosas pendientes");
         console.log("invertir la suma");
@@ -197,15 +202,20 @@
         console.log("sacar mi tarjeta de credito");
         console.groupEnd();
 
-
         console.time("tiempo");
-
-        for (let i = 0; i <100000; i++) {
+        for (let i = 0; i <10; i++) {
+            console.count("for");
            let j=i;         
         }
-
         console.timeEnd("tiempo");
         
+       
+        let x=5,
+        y=4,
+        prueba="x<y";
+
+        console.assert(x<y,{x,y,prueba});
+
         
 
     </script>
