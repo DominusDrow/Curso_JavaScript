@@ -266,18 +266,33 @@
         function parametros (nombre="desconocido"){
             console.log(`hola ${nombre}`);
         }
-
+        console.log("\n");
 
 
         // alert confirm y promt
-
+        
+        /*
         window.alert("Hola mundo");
         let si= window.confirm("si o si?"),
         entrada = window.prompt("say my name ");
 
         console.log(si);
-        console.log(entrada);
+        console.log(entrada);    
+        */
 
+
+        
+        //expresiones regulares
+
+        let correo="aovl12@hotmail.com";
+        let expRegular= /\w{1,}@\S{4,}.com/i;
+        // \w cualquier caracter alfanumerico 
+        // \S cualquier caracter menos espacio
+        // i ignorar mayusculas o minusculas
+        // {n,m} rango de veces que se puede repetir
+
+        console.log(expRegular.test(correo));   //nos devuelve true o false
+        console.log(expRegular.exec(correo));   //devuelve un objeto con propiedades
 
 
     </script>
