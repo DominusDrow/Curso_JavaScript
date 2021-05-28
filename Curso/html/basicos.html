@@ -281,7 +281,7 @@
         */
 
 
-        
+
         //expresiones regulares
 
         let correo="aovl12@hotmail.com";
@@ -294,6 +294,26 @@
         console.log(expRegular.test(correo));   //nos devuelve true o false
         console.log(expRegular.exec(correo));   //devuelve un objeto con propiedades
 
+
+
+
+        //funciones anonimas autoejecutables
+
+        //funcion nombrada
+        function funcion(){
+            console.log("soy una funcion");
+        }
+
+        //anonima autoejecutable
+        (function(){
+            console.log("\nsoy anonima y autoejecutable");
+        })();       //importante poner punto y coma al final
+
+        +function(d,w,c){
+            c.log("se remplaza el console por c");
+        }(document,window,console);     //la forma mas usada en jquery
+
+        
 
     </script>
 
