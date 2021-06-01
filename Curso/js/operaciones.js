@@ -57,3 +57,49 @@ export function repiteCadena(cadena,n){
         ? cadena.repeat(n)
         : "no es una cadena";
 }
+
+//invierte cadenas de texto
+export const inverteCad = (cadena="")=>{
+    
+    if(!cadena) return "cadena no valida";
+
+    let cadInv=new String();
+
+    for (let i=cadena.length-1; i>=0; i--)
+        cadInv=cadInv+cadena.charAt(i);
+    
+    return cadInv;
+}
+
+//cuenta las veces que se repite
+export const cuentaCad = (cadena="",coincidencia="")=>{
+    
+    if(!cadena) return "cadena no valida";
+    if(!coincidencia) return "coincidencia no valida";
+
+    let contador=0;
+
+    for (const i of cadena.split(" "))
+        if(i===coincidencia) contador++;
+
+    return contador;
+}
+
+//comprueba que es un palindromo
+export const palindromo = (cadena="")=>{
+    
+    if(!cadena) return "cadena no valida";
+
+    return (cadena===inverteCad(cadena))
+     ? true
+     : false;
+}
+
+//elimina cierto patron de caracteres
+export const eliminaCad = (cadena="",patron="")=>{
+    
+    if(!cadena) return "cadena no valida";
+    if(!patron) return "patron no valida";
+
+    return cadena.replace(new RegExp(patron,"gi"),"","g");
+}
