@@ -31,8 +31,29 @@ export function numCaracteres(cadena){
 
     return (!isNaN(cadena.length))
         ? "numero de caracteres: "+cadena.length
-        : "no es una cadena" 
+        : "no es una cadena";
 }
 
-
 //devuelve el texto recortado indicado
+export function subCadena(cadena,num){
+
+    return (!isNaN(cadena.length))
+        ? "subcadena: "+cadena.slice(0,num)
+        : "no hay subcadenas"; 
+}
+
+//devuelve un arreglo con las palabras
+export function cad_arreglo(cadena,separador){
+
+    return (!isNaN(cadena.length))
+        ? cadena.split(separador)
+        : "no es una cadena";
+}
+
+//devuelve la cadena repetida n veces
+export function repiteCadena(cadena,n){
+
+    return (!isNaN(cadena.length))
+        ? cadena.repeat(n)
+        : "no es una cadena";
+}
