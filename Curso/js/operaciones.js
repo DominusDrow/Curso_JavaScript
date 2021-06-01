@@ -1,11 +1,10 @@
 
-
-export const Pi= Math.PI;
-
-
-export function saludo(nombre){
-    console.log(`Hola ${nombre}`);
+//solo se puede tener una funcion por default
+export default function aaaa(){
+    console.log("aaaaa");   
 }
+//solo las funciones y clases se pueden exportar
+//por default directamente 
 
 
 function circulo(radio){
@@ -16,15 +15,24 @@ function cuadrado(lado){
     return lado*lado;
 }
 
-
 export const figuras = {
     circulo,
     cuadrado
 }
 
-//solo se puede tener una funcion por default
-export default function aaaa(){
-    console.log("aaaaa");   
+
+
+
+//EJERCICIOS BASICOS
+
+
+//ejercicio devuelve el num de caracteres
+export function numCaracteres(cadena){
+
+    return (!isNaN(cadena.length))
+        ? "numero de caracteres: "+cadena.length
+        : "no es una cadena" 
 }
-//solo las funciones y clases se pueden exportar
-//por default directamente 
+
+
+//devuelve el texto recortado indicado
