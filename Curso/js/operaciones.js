@@ -59,17 +59,11 @@ export function repiteCadena(cadena,n){
 }
 
 //invierte cadenas de texto
-export const inverteCad = (cadena="")=>{
-    
-    if(!cadena) return "cadena no valida";
+export const inverteCad = (cadena="")=>  
+    (!cadena)
+     ? "cadena no valida"
+     : cadena.split("").reverse().join(""); 
 
-    let cadInv=new String();
-
-    for (let i=cadena.length-1; i>=0; i--)
-        cadInv=cadInv+cadena.charAt(i);
-    
-    return cadInv;
-}
 
 //cuenta las veces que se repite
 export const cuentaCad = (cadena="",coincidencia="")=>{
@@ -90,16 +84,43 @@ export const palindromo = (cadena="")=>{
     
     if(!cadena) return "cadena no valida";
 
-    return (cadena===inverteCad(cadena))
+    let cad=cadena.toUpperCase();
+    return (cad===inverteCad(cad))
      ? true
      : false;
 }
-
+ 
 //elimina cierto patron de caracteres
 export const eliminaCad = (cadena="",patron="")=>{
     
     if(!cadena) return "cadena no valida";
     if(!patron) return "patron no valida";
 
-    return cadena.replace(new RegExp(patron,"gi"),"","g");
+    return cadena.replace(new RegExp(patron,"gi"),"");
+}
+
+//9.-numero aleatorio entre 501-600
+export const numAleatorio = ()=>
+    Math.random()*(601-501)+501
+
+//10.-evaluar si un numero es capicua
+export const numCapicua = (num=undefined)=>{
+
+    if(isNaN(num)) return "numero no valido";
+
+    return (num==inverteCad(""+num))
+     ? true
+     : false;
+}   
+
+//11.-factorial de un numero
+export const numFactorial = (num=undefined)=>{
+
+    if(isNaN(num)) return "numero no valido";
+
+     let factorial=1;
+     for (let i = 1; i <=num; i++) 
+        factorial*=i;
+    
+    return factorial;
 }
