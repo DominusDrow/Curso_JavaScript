@@ -163,3 +163,33 @@ export const celsiusFahrenheit = (grados=undefined,t="")=>{
      ? `${(grados*9/5)+32}°F`
      : `${(grados-32)*5/9}°C`
 }
+
+//15.-convertir números de base binaria a decimal y viceversa
+export const binDec = (num=undefined,base=undefined)=>{
+
+    if(isNaN(num) || typeof num!="number") return "ingrese un NUMERO";
+    if(base!=2 && base!=10) return "solo puede ingresar 2 o 10";
+    if(base===2) num.toString().split("").forEach(e => { console.log(e);
+        if(e=="3") return false;
+    });
+
+    let resultado=0;
+    let cont=0;
+
+    if(base===2)
+        for (const i of num.toString().split("").reverse())
+            resultado+=Math.pow(2,cont++)*parseInt(i);
+            
+    else{
+        let arreglo="";
+
+        while (num>=1){
+            arreglo+=(num%2);
+            num=Math.floor(num/2);
+        }
+
+        resultado=parseInt(inverteCad(arreglo));
+    }
+
+    return resultado;
+}
