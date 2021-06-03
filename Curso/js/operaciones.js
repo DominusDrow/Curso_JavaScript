@@ -101,14 +101,15 @@ export const eliminaCad = (cadena="",patron="")=>{
 
 //9.-numero aleatorio entre 501-600
 export const numAleatorio = ()=>
-    Math.random()*(601-501)+501
+    Math.round(Math.random()*(601-501)+501)
 
 //10.-evaluar si un numero es capicua
 export const numCapicua = (num=undefined)=>{
 
     if(isNaN(num)) return "numero no valido";
+    if(typeof num!="number") return "no es un numero";      //typeof devuelve el tipo de datp que es
 
-    return (num==inverteCad(""+num))
+    return (num==inverteCad(num.toString()))        //devuelve el numero en cadena de texto
      ? true
      : false;
 }   
@@ -117,10 +118,48 @@ export const numCapicua = (num=undefined)=>{
 export const numFactorial = (num=undefined)=>{
 
     if(isNaN(num)) return "numero no valido";
+    if(typeof num!="number") return "no es un numero";  
+    if(num<1) return "no se puede sacar factorial de 0 o negativos";
 
      let factorial=1;
      for (let i = 1; i <=num; i++) 
         factorial*=i;
     
     return factorial;
+}
+
+//evalua si un numero es primo 
+export const numPrimo = (num=undefined)=>{
+
+    if(isNaN(num)) return "numero no valido";
+    if(typeof num!="number") return "no es un numero";
+    if(num<1) return "los numeros primos no pueden ser negativos";  
+
+    for (let i = 2; i < 10; i++) 
+        if(Number.isInteger(num/i) && i!=num)
+            return false;
+
+    return true;
+}
+
+//determina si un numero es par o impar
+export const numParImpar = (num=undefined)=>{
+
+    if(isNaN(num)) return "numero no valido";
+    if(typeof num!="number") return "no es un numero";
+
+    return (num%2==0)
+     ? "par"
+     : "impar";
+}
+
+//de Celsius a Fahrenheit y viceversa
+export const celsiusFahrenheit = (grados=undefined,t="")=>{
+
+    if(isNaN(grados) || typeof grados!="number") return "ingrese un NUMERO";
+    if(t!='C' && t!='F') return "solo puede ingresar F o C";
+
+    return (t==='C')
+     ? `${(grados*9/5)+32}°F`
+     : `${(grados-32)*5/9}°C`
 }
