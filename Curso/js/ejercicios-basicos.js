@@ -1,6 +1,5 @@
 
-import {numCaracteres,subCadena,cad_arreglo,repiteCadena,inverteCad,cuentaCad,palindromo,eliminaCad,
-    numAleatorio,numCapicua,numFactorial,numPrimo,numParImpar,celsiusFahrenheit,binDec} from "./operaciones.js";
+import {binDec,descuento,aniosPasados} from "./operaciones.js";
 /*
 let cad = prompt("ingrese una cadena");
 let num = prompt("dijitos de la subcadena:");
@@ -24,5 +23,7 @@ console.log(numCapicua(2002));
 console.log(numFactorial(5));
 console.log(numPrimo(89));
 console.log(numParImpar(88));
-console.log(celsiusFahrenheit(2,"C")); */
-console.log(binDec(13,2));
+console.log(celsiusFahrenheit(2,"C"));
+console.log(binDec(100,2)); 
+console.log(descuento(1000,80));*/
+console.log(aniosPasados(new Date(1984,4,23)));

@@ -169,12 +169,13 @@ export const binDec = (num=undefined,base=undefined)=>{
 
     if(isNaN(num) || typeof num!="number") return "ingrese un NUMERO";
     if(base!=2 && base!=10) return "solo puede ingresar 2 o 10";
-    if(base===2) num.toString().split("").forEach(e => { console.log(e);
-        if(e=="3") return false;
-    });
+    if(!Number.isInteger(num) || num<0 ) return "solo numeros enteros positivos";
+    if(base===2)
+        for (const i of num.toString().split("")) 
+            if(i!='0' && i!='1') return "solo se permiten 0s y 1s";
 
-    let resultado=0;
-    let cont=0;
+    let resultado=0,
+    cont=0;
 
     if(base===2)
         for (const i of num.toString().split("").reverse())
@@ -182,14 +183,30 @@ export const binDec = (num=undefined,base=undefined)=>{
             
     else{
         let arreglo="";
-
         while (num>=1){
             arreglo+=(num%2);
             num=Math.floor(num/2);
         }
-
         resultado=parseInt(inverteCad(arreglo));
     }
 
     return resultado;
+}
+
+//16.-devuelve el descuento aplicado a la canridad dada
+export const descuento = (precio=undefined,descuento=undefined)=>{
+
+    if(isNaN(precio) || typeof precio!="number") return "precio no valido";
+    if(isNaN(descuento) || typeof descuento!="number") return "descuento no valido";
+    if(descuento>100 || descuento<0) return "el decuento puede ser entre 0 y100%";
+
+    return (precio*descuento)/100;
+}
+
+//17.-dada una fecha cuantos años han pasado
+export const aniosPasados = (fecha=new Date())=>{
+    if(!(fecha instanceof Date)) return "no es una fecha";
+    if(fecha.getFullYear()>new Date().getFullYear()) return "aun no a pasado esa fecha";
+    
+    return new Date().getFullYear()-fecha.getFullYear();
 }
