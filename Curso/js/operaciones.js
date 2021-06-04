@@ -193,6 +193,18 @@ export const binDec = (num=undefined,base=undefined)=>{
     return resultado;
 }
 
+//15.-otra forma de de hacerlo
+export const binDec2 = (num=undefined,base=undefined)=>{
+
+    if(isNaN(num) || typeof num!="number") return "ingrese un NUMERO";
+    if(base!=2 && base!=10) return "solo puede ingresar 2 o 10";
+    if(!Number.isInteger(num) || num<0 ) return "solo numeros enteros positivos";
+
+    return (base===2)
+     ? `${num} = ${parseInt(num,2)}`    //convierte a la base que le pasemos
+     : `${num} = ${num.toString(2)}`;  //lo expresa en la base especificada
+}
+
 //16.-devuelve el descuento aplicado a la canridad dada
 export const descuento = (precio=undefined,descuento=undefined)=>{
 
@@ -200,7 +212,7 @@ export const descuento = (precio=undefined,descuento=undefined)=>{
     if(isNaN(descuento) || typeof descuento!="number") return "descuento no valido";
     if(descuento>100 || descuento<0) return "el decuento puede ser entre 0 y100%";
 
-    return (precio*descuento)/100;
+    return (precio*descuento)/100; 
 }
 
 //17.-dada una fecha cuantos años han pasado
@@ -210,3 +222,39 @@ export const aniosPasados = (fecha=new Date())=>{
     
     return new Date().getFullYear()-fecha.getFullYear();
 }
+
+//cuenta vocales y consonantes
+export const vocales = (cadena="")=>{
+
+    if(!cadena || typeof cadena!="string") return "no ingreso una cadena";
+
+    let vocales=0,
+    consonantes=0;
+
+    for (const i of cadena.split("")) 
+        if(/a|i|u|e|o/i.test(i)) vocales++;
+        else if(/\S/.test(i) && /\D/.test(i) && /\w/i.test(i)) consonantes++; //otra forma es /[bcd...]/
+    
+    return `vocales=${vocales}  consonantes=${consonantes}`;
+}
+
+//valida que un nombre sea valido
+export const validaNom = (nombre="")=>{
+
+    if(!nombre || typeof nombre!="string") return "no ingreso una nombre";
+
+    return (/^[a-zñáíúéó\s]+$/ig.test(nombre))
+     ? true
+     : false; 
+}
+
+//validar un correo electronico
+export const validarCorreo = (correo="")=>{
+
+    if(!correo || typeof correo!="string") return "no ingreso un correo";
+
+    return (/[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(correo))
+     ? true 
+     : false;
+}
+
