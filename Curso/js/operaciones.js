@@ -258,3 +258,49 @@ export const validarCorreo = (correo="")=>{
      : false;
 }
 
+//21.-devuelve un array con los numeros al cuadrado
+export const arregloCuadrado = (array=undefined)=>{
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+
+    for (let i = 0; i < array.length; i++)
+        if(typeof array[i]==="number") array[i]=Math.pow(array[i],2);
+        else return "el arreglo solo puede tener numeros";
+    
+    return array;
+}
+
+//22.-devuelve el numero mas alto y mas bajo
+export const mayorMenor = (array=undefined)=>{
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+
+    let mayor=array[0],
+     menor=array[0];
+
+    for (const i of array){
+        if(typeof i!="number") return "el arreglo solo puede tener numeros";
+        
+        if(i>mayor) mayor=i;
+        if(i<menor) menor=i;
+    }
+
+    return `mayor=${mayor} y menor=${menor}`;
+}
+
+//23.-devuelve un objeto con los pares y imparres
+export const paresImparesObj = (array=undefined)=>{
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+
+    let pares=[],
+     impares=[];
+
+    for (const i of array) 
+        if(typeof i!="number") return "el arreglo solo puede tener numeros";
+        else (i%2===0)
+             ? pares.push(i)
+             : impares.push(i);
+    
+    return {pares,impares};
+}

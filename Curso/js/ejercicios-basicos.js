@@ -1,5 +1,5 @@
 
-import {vocales,validaNom} from "./operaciones.js";
+import {arregloCuadrado,mayorMenor,paresImparesObj} from "./operaciones.js";
 /*
 let cad = prompt("ingrese una cadena");
 let num = prompt("dijitos de la subcadena:");
@@ -27,7 +27,11 @@ console.log(celsiusFahrenheit(2,"C"));
 console.log(binDec(100,2)); 
 console.log(descuento(1000,80));
 console.log(aniosPasados(new Date(1984,4,23)));
-console.log(binDec2(10,10));*/
+console.log(binDec2(10,10));
 console.log(vocales("hola mundo"));
 console.log(validaNom("ALfredo Omar vasquez"));
+console.log(arregloCuadrado([3,2,6]));
+console.log(mayorMenor([2,3,42,-2]));*/
+console.log(paresImparesObj([3,2,4]));
+
 
