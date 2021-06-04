@@ -270,6 +270,16 @@ export const arregloCuadrado = (array=undefined)=>{
     return array;
 }
 
+//21.-otra forma de hacerlo usando map
+export const arregloCuadrado2 = (array=undefined)=>{
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+    for (let i = 0; i < array.length; i++)
+        if(typeof array[i]!="number") return "el arreglo solo puede tener numeros";
+    
+    return array.map(i=>i*i);   //map devuelve un nuevo arreglo con los cambios hechos en la funcion
+}
+
 //22.-devuelve el numero mas alto y mas bajo
 export const mayorMenor = (array=undefined)=>{
 
@@ -280,12 +290,21 @@ export const mayorMenor = (array=undefined)=>{
 
     for (const i of array){
         if(typeof i!="number") return "el arreglo solo puede tener numeros";
-        
         if(i>mayor) mayor=i;
         if(i<menor) menor=i;
     }
 
     return `mayor=${mayor} y menor=${menor}`;
+}
+
+//22.-otra forma de hacerlo usnando Math.min() y Math.max()
+export const mayorMenor2 = (array=undefined)=>{
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+    for (const i of array)
+        if(typeof i!="number") return "el arreglo solo puede tener numeros";
+
+    return `mayor=${Math.max(...array)} y menor=${Math.min(...array)}`;
 }
 
 //23.-devuelve un objeto con los pares y imparres
@@ -303,4 +322,17 @@ export const paresImparesObj = (array=undefined)=>{
              : impares.push(i);
     
     return {pares,impares};
+}
+
+//23.-otra forma de hacerlo pero con el metodo filter
+export const paresImparesObj2 = (array=undefined)=>{
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+    for (const i of array) 
+        if(typeof i!="number") return "el arreglo solo puede tener numeros";
+    
+    return {
+        pares: array.filter(i=>!(i%2)), //filter filtra los elementos segun la funcion pasada
+        impares: array.filter(i=>i%2) 
+    };
 }
