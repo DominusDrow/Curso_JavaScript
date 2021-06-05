@@ -1,5 +1,5 @@
 
-import {numOredenados,eliminaDupli,promedioNums} from "./operaciones.js";
+import {numOredenados,eliminaDupli,promedioNums,promedioNums2} from "./operaciones.js";
 /*
 let cad = prompt("ingrese una cadena");
 let num = prompt("dijitos de la subcadena:");
@@ -39,3 +39,4 @@ console.log(paresImparesObj2([3,2,4]));
 console.log(numOredenados([7,4,10,50,1]));
 console.log(eliminaDupli(["x", 10, "x", 2, "10", 10, true, true]));*/
 console.log(promedioNums([9,8,7,6,5,4,3,2,1,0]));
+console.log(promedioNums2([9,8,7,6,5,4,3,2,1,0]));

@@ -369,3 +369,19 @@ export const promedioNums = (array=undefined)=>{
 
     return total/array.length;
 }
+
+//otra forma de resolverlo con el metodo reduce
+export const promedioNums2 = (array=undefined)=>{
+    let total=0;
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+    for (const i of array) 
+        if(typeof i!="number") return "el arreglo solo puede tener numeros";
+
+    return array.reduce((t,a,i,arr)=>{  //genera un nuevo arreglo devolviendo solo un valor
+        t+=a;
+        return (i===(arr.length-1))
+         ? t/arr.length
+         : t;
+    })
+}
