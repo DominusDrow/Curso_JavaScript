@@ -334,5 +334,38 @@ export const paresImparesObj2 = (array=undefined)=>{
     return {
         pares: array.filter(i=>!(i%2)), //filter filtra los elementos segun la funcion pasada
         impares: array.filter(i=>i%2) 
-    };
+    }
+}
+
+//regresa numeros ordenados
+export const numOredenados = (array=undefined)=>{
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+    for (const i of array) 
+        if(typeof i!="number") return "el arreglo solo puede tener numeros";
+    
+    return {
+        asendente: array.sort((a,b)=>a-b),
+        desendente: array.map(a=>a).reverse()
+    }
+}
+
+//elimina los duplicados de un arreglo
+export const eliminaDupli = (array=undefined)=>{
+
+    return (!(array instanceof Array) || !array.length)
+     ? "no ingreso un arreglo"
+     : Array.from(new Set(array));
+}
+
+//obtiene el promedio de un arreglo se numeros
+export const promedioNums = (array=undefined)=>{
+    let total=0;
+
+    if(!(array instanceof Array) || !array.length) return "no ingreso un arreglo";
+    for (const i of array) 
+        if(typeof i!="number") return "el arreglo solo puede tener numeros";
+        else total+=i;
+
+    return total/array.length;
 }
