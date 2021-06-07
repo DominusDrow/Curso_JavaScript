@@ -385,3 +385,41 @@ export const promedioNums2 = (array=undefined)=>{
          : t;
     })
 }
+
+//27.-crear una clase pelicula
+export class Pelicula {
+    constructor({id, titulo, director, estreno, pais, generos, calificacion}){
+        this.id = id;
+        this.titulo = titulo;
+        this.director = director;
+        this.estreno = estreno;
+        this.pais = pais;
+        this.generos = generos;
+        this.calificacion = calificacion;
+
+        //VALIDACIONES
+
+        if(!/^[a-z]{2}\d{7}$/i.test(id)) console.log("id invalido");    
+        if(titulo.length>100)   console.log("titulo no valido");
+        if(director.length>50)  console.log("director no validio");
+        if(!/^\d{4}$/.test(""+estreno)) console.log("estreno invalido");
+        if(!(pais instanceof Array)) console.log("paises se ingresan como arreglo");
+        if(!(generos instanceof Array)) console.log("generos se ingrean como arreglo");        
+        if(!(typeof calificacion==="number") || !(10>calificacion>0))  console.log("calificacion invalido"); 
+        generos.forEach(i => {
+            if(Pelicula.generosAceptados.indexOf(i)==-1) console.log("generos invalidos"); 
+        });
+    }
+
+    static get generosAceptados(){
+        return ["Action","Adult","Adventure","Animation","Biography","Comedy","Crime","Documentary",
+        "Drama","Family","Fantasy","Film Noir","Game-Show","History","Horror","Musical","Music","Mystery",
+        "News","Reality-TV","Romance","Sci-Fi","Short","Sport","Talk-Show","Thriller","War","Western"];
+    }
+
+    get fichaTecnica(){
+        return `\nid: ${this.id}\ntitulo: ${this.titulo}\ndirector: ${this.director}\nestreno: ${this.estreno}
+        pais:${this.pais}\ngeneros: ${this.generos}\ncalificacion: ${this.calificacion}`
+    }
+
+}
