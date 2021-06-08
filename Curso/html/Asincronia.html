@@ -13,10 +13,11 @@
     
     //TEMPORIZADORES
 
-    //ejecuta un bloque de codigo pasado un cierto tiempo
+    //ejecuta un bloque de codigo pasado un cierto tiempo 
+    /*
     setTimeout(()=>{
         console.log("soy un setTimeOut");
-    },1000);
+    },1000);*/
 
     //tambien se le puede asignar a una variable
     let temp = setTimeout(()=>{
@@ -27,9 +28,10 @@
     clearTimeout(temp);
 
     //ejecuta un bloque de codigo repetidamente cada cierto tiempo
+    /*
     setInterval(()=>{
         console.log("soy un set interval y me repito:v");
-    },5000);
+    },5000); */
 
     //se puede asignar a una variable
     let tempI = setInterval(()=>{
@@ -39,8 +41,51 @@
     //se cancela asi (tiene que haber sido asignado a una variable)
     clearInterval(tempI);
 
-    
 
+    // PROGRAMACION SINCRONA Y ASINCRONA
+
+    //codigo sicrono bloqueante
+    (()=>{
+        console.log("Codigo sincrono");
+
+        function dos(){
+            console.log("Dos");
+        }
+
+        function uno(){
+            console.log("Uno");
+            dos();
+            console.log("Tres");
+        }
+
+        uno();
+        console.log("Fin");
+    })();
+
+    //codigo asincrono no bloqueante
+    (()=>{
+        console.log("Codigo Asincrono");
+
+        function dos(){
+            setTimeout(()=>{
+                console.log("Dos");
+            },1000);
+        }
+
+        function uno(){
+            setTimeout(()=>{
+                console.log("Uno");
+            },0);
+            dos();
+            console.log("Tres");
+        }
+
+        uno();
+        console.log("Fin");
+    })();
+
+
+    
 
     </script>
     
