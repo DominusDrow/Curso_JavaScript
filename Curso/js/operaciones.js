@@ -399,7 +399,7 @@ export class Pelicula {
 
         //VALIDACIONES
 
-        if(!/^[a-z]{2}\d{7}$/i.test(id)) console.log("id invalido");    
+        if(!/^[a-z]{2}\d{7}$/i.test(id)) console.log("id debe ser 2 caracteres y 7 numeros");    
         if(titulo.length>100)   console.log("titulo no valido");
         if(director.length>50)  console.log("director no validio");
         if(!/^\d{4}$/.test(""+estreno)) console.log("estreno invalido");
@@ -407,7 +407,7 @@ export class Pelicula {
         if(!(generos instanceof Array)) console.log("generos se ingrean como arreglo");        
         if(!(typeof calificacion==="number") || !(10>calificacion>0))  console.log("calificacion invalido"); 
         generos.forEach(i => {
-            if(Pelicula.generosAceptados.indexOf(i)==-1) console.log("generos invalidos"); 
+            if(!Pelicula.generosAceptados.includes(i)) console.log("generos invalidos"); 
         });
     }
 
@@ -418,8 +418,8 @@ export class Pelicula {
     }
 
     get fichaTecnica(){
-        return `\nid: ${this.id}\ntitulo: ${this.titulo}\ndirector: ${this.director}\nestreno: ${this.estreno}
-        pais:${this.pais}\ngeneros: ${this.generos}\ncalificacion: ${this.calificacion}`
+        return "\nid: "+this.id+"\ntitulo: "+this.titulo+"\ndirector: "+this.director+"\nestreno: "+this.estreno+
+        "\npais: "+this.pais+"\ngeneros: "+this.generos+"\ncalificacion: "+this.calificacion;
     }
 
 }

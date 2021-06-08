@@ -68,10 +68,11 @@ const peli1 = {
     generos:["Drama","History"],
     calificacion:6
  }
-
+ 
 const peliculas = [peli1,peli2,peli3];
 
-for (let i of peliculas) 
-    i = new Pelicula(i);
+peliculas.forEach(i => console.log(new Pelicula(i).fichaTecnica));
+
+
 
 
