@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <title>Asincronia JavaScript</title>
+</head>
+
+
+<body>
+    <h1>Asincrionia JavaScript</h1>
+
+    <script type="text/javascript">
+    
+    //TEMPORIZADORES
+
+    //ejecuta un bloque de codigo pasado un cierto tiempo
+    setTimeout(()=>{
+        console.log("soy un setTimeOut");
+    },1000);
+
+    //tambien se le puede asignar a una variable
+    let temp = setTimeout(()=>{
+        console.log("soy otro setTimeout");
+    },3000);
+
+    //y asi se cancela (se nesesita que se haya asignado a una variable)
+    clearTimeout(temp);
+
+    //ejecuta un bloque de codigo repetidamente cada cierto tiempo
+    setInterval(()=>{
+        console.log("soy un set interval y me repito:v");
+    },5000);
+
+    //se puede asignar a una variable
+    let tempI = setInterval(()=>{
+        console.log("soy otro setInterval y me repito mas!");
+    },1000);
+
+    //se cancela asi (tiene que haber sido asignado a una variable)
+    clearInterval(tempI);
+
+    
+
+
+    </script>
+    
+</body>
+
+</html>
