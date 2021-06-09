@@ -141,6 +141,7 @@
     */
 
     //aunque se puede formar la dichosa callbackHell
+    /*
     function cuadradoCallback(valor,callback){
         setTimeout(() => {
             callback(valor,valor*valor);
@@ -164,7 +165,63 @@
             })
         })
     })
+    */
 
+    //PROMESAS
+
+    //una promesa es un objeto que asegura la ejecucion de un bloque asincrono
+    //tiene dos metodos, "resolve" que es lo que se devuelve cuando la promesa se cumple 
+    //y "reject" que se devuelve cuando la promesa no se cumple
+    const promesa1 = Promise.resolve(1);
+
+    console.log(promesa1);
+
+    promesa1
+     .then(x => x+1)            //se puede agregar 
+     .then(x => console.log(x)) //se ve reflejado en el siguiente then
+    
+
+     //tambien se comporta como objeto y resibe una funcion
+    const promesa2 = x => new Promise((resolve,reject) => {
+        setTimeout(() => {
+            resolve(x);
+        }, 1000);
+    })
+
+    promesa2(4)
+     .then(x => x*x)
+     .then(x => console.log(x))
+    
+    
+    //ahora hacemos el ejercicio anterior pero con promesas
+    const cuadradoPromise = valor => {
+        if(typeof valor!= "number") return Promise.reject("no es numero");
+
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                resolve(valor*valor);   //tambien se pueden retornar objetos y funciones etc.
+            }, 0 | Math.random()*1000);
+        })
+    }
+
+    cuadradoPromise(0)
+     .then(x => {
+        console.log("Inicia Promise");
+        console.log(x);
+        return cuadradoPromise(1);
+     })
+     .then(x => {
+        console.log(x);
+        return cuadradoPromise(2);
+     })
+     .then(x => {
+        console.log(x);
+        return cuadradoPromise(3);
+     })
+     .then(x => {
+        console.log(x);
+     })
+     .catch(e => console.error(e));
 
     </script>
     
