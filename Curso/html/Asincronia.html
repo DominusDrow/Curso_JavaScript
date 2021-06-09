@@ -63,6 +63,7 @@
     })();
 
     //codigo asincrono no bloqueante
+    /*
     (()=>{
         console.log("Codigo Asincrono");
 
@@ -82,10 +83,88 @@
 
         uno();
         console.log("Fin");
-    })();
+    })(); */
 
 
+    //CALLBACK
+
+    //una callback es una funcion que se pasa por parametro
+    function imprimeSaludo(nombre){
+        console.log(`hola ${nombre}`);
+    }
     
+    function saluda(nombre,callback){
+        callback(nombre);
+    }
+
+    saluda("Alfredo",imprimeSaludo);    //se pasa por parametro la funcion
+
+    //si tenemos codigo asincrono las funciones se ejecutan conforme
+    //se culminen las peticiones
+    function mensaje1(){
+        setTimeout(() => {
+            console.log("mensaje 1");
+        }, 0);
+    }
+
+    function mensaje2(){
+        console.log("mensaje 2");
+    }
+
+    mensaje1();
+    mensaje2();
+    /*salida: 
+    mensaje 2
+    mensaje 1
+    
+    //cuando se presenta codigo asincrono el orden de ejecucion
+    //no lo controlamos nosotros, esto puede conllevar un problema
+    //si "mensaje2" nesesita forzosamete que "mensaje1" se ejecute antes
+    */
+    
+    //una forma de solucionar esto es con las callbacks
+    function Mensaje1(callback){
+        setTimeout(() => {
+            console.log("Mensaje 1");
+            callback();         //ejecutandola aqui nos aseguramos el orden correcto
+        }, 0);
+    }
+
+    function Mensaje2(){
+        console.log("Mensaje 2");
+    }
+
+    Mensaje1(Mensaje2);
+    /*salida:
+    Mensaje 1
+    Mensaje 2
+    */
+
+    //aunque se puede formar la dichosa callbackHell
+    function cuadradoCallback(valor,callback){
+        setTimeout(() => {
+            callback(valor,valor*valor);
+        }, 0 | Math.random()*1000);
+    }
+
+    cuadradoCallback(0,(valor,resultado)=>{
+        console.log("inicia callbackhell");
+        console.log(`resultado ${resultado}`);
+
+        cuadradoCallback(1,(valor,resultado)=>{
+            console.log(`resultado ${resultado}`);
+        
+            cuadradoCallback(2,(valor,resultado)=>{
+                console.log(`resultado ${resultado}`);
+                
+                cuadradoCallback(2,(valor,resultado)=>{
+                    console.log(`resultado ${resultado}`);
+                    console.log("Aaaa callbackhell");
+                })
+            })
+        })
+    })
+
 
     </script>
     
