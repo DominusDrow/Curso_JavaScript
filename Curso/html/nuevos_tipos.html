@@ -127,11 +127,54 @@
     console.log(mapa2);
 
 
+    //WEAKSET Y WEAKMAP *******************************************************
+
+    //son los mismos pero descafeinados
+    //no son ITERABLES, no tienen la propiedad SIZE, no se instancean directament
+    //el recolector de basura los limpia automaticamente, mejoran el rendimiento
+
+    //weakset
+    const wset = new WeakSet();
+
+    let obj1 = {"valor1":2},
+     obj2 = {"valor2":3},
+     obj3 = {"valor3":8};
+
+    wset.add(obj1);     //no acepta valores repetidos
+    wset.add(obj2);     //solo acepta objetos como parametros
+    wset.add(obj3);     //no se puede limpiar con .clear()
+
+    console.log(wset);
+
+    obj2=null;
+    console.log(wset); //cuando uno de sus valores se nulifica se elimina automaticamente
+
+    //weakmap
+    const wmap = new WeakMap();
+
+    let llave1 = {},
+     llave2 = {},
+     llave3 = {};
+
+    wmap.set(llave1,2); //solo acepta objetos como llave
+    wmap.set(llave2,4); //no se puede limpiar con .clear()
+    wmap.set(llave3,6); //no se puede iterar
+
+    console.log(wmap);
+
+    //los metodos mas basicos si funcionan
+    console.log(wmap.has(llave1));
+    console.log(wmap.get(llave3));
+    wmap.delete(llave2);
+    console.log(wmap);
+
+
     //
 
 
 
 
+    
     </script> 
 </body>
 
