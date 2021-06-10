@@ -80,9 +80,58 @@
 
 
     
+    //MAPS *******************************************************
+
+    //es un tipo de dato complejo parecido a los objetos literales
+    const mapa = new Map();
+    
+    //se usan los metodos set u get para ingresar u obtener valores
+    mapa.set("nombre","Alfredo");
+    mapa.set("alias","drow");
+    console.log(mapa);
+    console.log(mapa.get("alias"));
+
+    //una propiedad LOCA de los mapas es que como llaves se puede ingresar CUALQUIER valor
+    mapa.set(null,"null");
+    mapa.set(false,true);
+    console.log(mapa);
+
+    //como en el set para saber su tamaño se usa siza en vez de length
+    console.log(mapa.size)
+
+    //para saber si una llave esta dentro de un mapa
+    console.log(mapa.has("alias"));
+    console.log(mapa.has("apellido"));
+    
+    //para eliminar una llave
+    mapa.delete("alias");
+    console.log(mapa);
+
+    //es un objeto iterable 
+    for (const [key,value] of mapa) 
+        console.log("llave: ",key," valor: ",value);
+
+    //sus llaves y valores se pueden convertir en arreglos
+    const llaves = [...mapa.keys()],
+     valores = [...mapa.values()];
+
+    console.log(llaves,"\n",valores);
+
+    //tambien se pueden constuir directamente
+    const mapa2 = new Map([
+        ["nombre","Ricardo"],
+        ["profesion","Programador"],
+        ["existe",false]
+    ]);
+
+    console.log(mapa2);
+
+
     //
-    
-    
+
+
+
+
     </script> 
 </body>
 
