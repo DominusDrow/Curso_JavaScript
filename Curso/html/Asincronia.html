@@ -11,13 +11,12 @@
 
     <script type="text/javascript">
     
-    //TEMPORIZADORES
-
-    //ejecuta un bloque de codigo pasado un cierto tiempo 
+    //TEMPORIZADORES  *******************************************************
     /*
+    //ejecuta un bloque de codigo pasado un cierto tiempo 
     setTimeout(()=>{
         console.log("soy un setTimeOut");
-    },1000);*/
+    },1000);
 
     //tambien se le puede asignar a una variable
     let temp = setTimeout(()=>{
@@ -28,10 +27,10 @@
     clearTimeout(temp);
 
     //ejecuta un bloque de codigo repetidamente cada cierto tiempo
-    /*
+    
     setInterval(()=>{
         console.log("soy un set interval y me repito:v");
-    },5000); */
+    },5000); 
 
     //se puede asignar a una variable
     let tempI = setInterval(()=>{
@@ -40,10 +39,12 @@
 
     //se cancela asi (tiene que haber sido asignado a una variable)
     clearInterval(tempI);
+    */
 
 
-    // PROGRAMACION SINCRONA Y ASINCRONA
 
+    // PROGRAMACION SINCRONA Y ASINCRONA  **************************************************
+    /*
     //codigo sicrono bloqueante
     (()=>{
         console.log("Codigo sincrono");
@@ -63,7 +64,7 @@
     })();
 
     //codigo asincrono no bloqueante
-    /*
+    
     (()=>{
         console.log("Codigo Asincrono");
 
@@ -86,8 +87,9 @@
     })(); */
 
 
-    //CALLBACK
 
+    //CALLBACK *******************************************************
+    /*
     //una callback es una funcion que se pasa por parametro
     function imprimeSaludo(nombre){
         console.log(`hola ${nombre}`);
@@ -113,14 +115,14 @@
 
     mensaje1();
     mensaje2();
-    /*salida: 
-    mensaje 2
-    mensaje 1
+    //salida: 
+    //mensaje 2
+    //mensaje 1
     
     //cuando se presenta codigo asincrono el orden de ejecucion
     //no lo controlamos nosotros, esto puede conllevar un problema
     //si "mensaje2" nesesita forzosamete que "mensaje1" se ejecute antes
-    */
+    
     
     //una forma de solucionar esto es con las callbacks
     function Mensaje1(callback){
@@ -135,13 +137,12 @@
     }
 
     Mensaje1(Mensaje2);
-    /*salida:
-    Mensaje 1
-    Mensaje 2
-    */
+    //salida:
+    //Mensaje 1
+    //Mensaje 2
+
 
     //aunque se puede formar la dichosa callbackHell
-    /*
     function cuadradoCallback(valor,callback){
         setTimeout(() => {
             callback(valor,valor*valor);
@@ -167,8 +168,10 @@
     })
     */
 
-    //PROMESAS
 
+
+    //PROMESAS *******************************************************
+    /*
     //una promesa es un objeto que asegura la ejecucion de un bloque asincrono
     //tiene dos metodos, "resolve" que es lo que se devuelve cuando la promesa se cumple 
     //y "reject" que se devuelve cuando la promesa no se cumple
@@ -191,7 +194,7 @@
     promesa2(4)
      .then(x => x*x)
      .then(x => console.log(x))
-    
+    */
     
     //ahora hacemos el ejercicio anterior pero con promesas
     const cuadradoPromise = valor => {
@@ -203,7 +206,7 @@
             }, 0 | Math.random()*1000);
         })
     }
-
+    /*
     cuadradoPromise(0)
      .then(x => {
         console.log("Inicia Promise");
@@ -222,6 +225,52 @@
         console.log(x);
      })
      .catch(e => console.error(e));
+    */
+
+    
+    //FUNCIONES ASINCRONAS *******************************************************
+     
+    //las funciones asincronas permiten un codigo mas legible
+    async function fnAsincronaD (){
+        console.log("Inicio de la funcion asincrona Declarada");
+
+        try {       //trabajamos en un try catch en vez de then y catch
+            let cuadrado = await cuadradoPromise(0);
+            console.log(cuadrado);
+
+            cuadrado = await cuadradoPromise(1); //await impide continuar hasta que se acabe la funcion
+            console.log(cuadrado);
+            
+            cuadrado = await cuadradoPromise(2);
+            console.log(cuadrado);
+
+            cuadrado = await cuadradoPromise(3);
+            console.log(cuadrado);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    fnAsincronaD();
+    
+    //para una funcion declarado 
+    const fnAsincronaE = async () => {
+        console.log("Inicio de la funcion asincrona Expresada");
+        try { 
+            let cuadrado=undefined;
+            for (let i = 0; i <= 3; i++) {
+                cuadrado = await cuadradoPromise(i);
+                console.log(cuadrado);         
+            }     
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    
+    fnAsincronaE();
+
+
+    //
 
     </script>
     
