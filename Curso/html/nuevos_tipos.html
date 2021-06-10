@@ -45,6 +45,42 @@
     persona[SALUDAR]();
 
 
+    //SET *******************************************************
+
+    //es un objeto (conjunto) donde no se repiten los datos
+    const set = new Set([2,2,3,12,"hola","hola",true,false,true]);
+    console.log(set);
+
+    //tiene la propiedad size en vez de legth
+    console.log(set.size);
+
+    //no se puede ingresar a sus posiciones automaticamente
+    console.log(set[1]);
+
+    //se puede comvertir a un arreglo para acceder dinamicamente a sus posiciones
+    const array = Array.from(set);
+    console.log(array);
+    console.log(array[3]);
+
+    //es un objeto iterable
+    for (const i of set) 
+        console.log("i: ",i);
+
+    //añadir un elemento
+    set.add("nuevo");
+    console.log(set);
+
+    //eliminar un elemento
+    set.delete("hola");
+    console.log(set);
+
+    //limpiar set
+    set.clear();
+    console.log(set);
+
+
+    
+    //
     
     
     </script> 
