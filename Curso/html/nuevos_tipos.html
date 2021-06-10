@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <title>Asincronia JavaScript</title>
+</head>
+
+<html>
+
+<body>    
+    <h1>Asincrionia JavaScript</h1>
+    
+    <script type="text/javascript">
+
+    //SYMBOL *******************************************************
+
+    //simboy es un nuevo dato primitimo de ECMA-scrip6
+    console.log(typeof Symbol());
+
+    //son identificadores unicos 
+    console.log(Symbol("id")==Symbol("id"));
+    
+    //se tiene que invocar como constante, se le puede poner un identificador
+    const NOMBRE = Symbol("nombre"),
+     SALUDAR = Symbol("saludar");
+
+    const persona = {
+        nombre:"Alfredo",
+        edad: 20,
+        [NOMBRE]: "Drow"    //sirve como un atributo privado en un objeto
+    }
+    
+    console.log(persona);
+
+    //no se lista cuando recorremos el objeto
+    for (const key in persona) 
+        console.log(key,persona[key]);
+
+    //se pueden listar asi
+    console.log(Object.getOwnPropertySymbols(persona));
+    
+    //tambien puede ser una funcion
+    persona[SALUDAR] = () => console.log("hola soy ",persona.nombre);
+    
+    persona[SALUDAR]();
+
+
+    
+    
+    </script> 
+</body>
+
+</html>
