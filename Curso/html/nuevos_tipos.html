@@ -169,12 +169,38 @@
     console.log(wmap);
 
 
-    //
+    //ITERADOR *******************************************************
+
+    //es una interfaz (similar a un apuntador) que permite aceder
+    //a cada una de las propiedades de un objeto iterable
+
+    //objet iterable (String, Array, Object, Set, Map, etc...)
+    const iterable = [2,34,20,2,"hola","mundo"];
+    
+    //iterador invocado con Symbol
+    let iterador = iterable[Symbol.iterator]();
+
+    //con el metodo next podemos acceder al siguiente elemento
+    console.log(iterable);
+    console.log(iterador);
+    console.log(iterador.next());   //done  indica true cuando se acaba el arreglo
+
+    //se puede automatizar el acceso con un ciclo
+    let next = iterador.next();
+    while(!next.done){
+        console.log(next.value);
+        next = iterador.next();
+    }
 
 
-
+    //GENERADORES *******************************************************
 
     
+
+
+
+
+
     </script> 
 </body>
 
