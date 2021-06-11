@@ -8,7 +8,7 @@
 <html>
 
 <body>    
-    <h1>Asincrionia JavaScript</h1>
+    <h1>Asincrionia JavaScript y Nuevos tipos de datos</h1>
     
     <script type="text/javascript">
 
@@ -269,8 +269,23 @@
     console.log(Alfredo);
 
 
+    //PROPIEDADES DINAMICAS DE OBJETOS *******************************************************
+
+    //se pueden crear dinamicamente si esperanos un numero de datos indefinido
+    const Usuarios = {
+        propNormal: "Normal",
+        [`id_${Math.round(Math.random()*100)+10}`]:"Dinamico"   //propiedad dinamica
+    }
+    console.log(Usuarios);
+
+    //tambien se pueden gnerar una vez creado el objeto
+    const UsuariosR = ["Alfredo","Ricardo","Aldo","Micheal","Sonia"];
+
+    UsuariosR.forEach((nombre,index) => Usuarios[`id_${index}`]=nombre);    //se crean con notacion de []
+    console.log(Usuarios);
+
+
     //
-    
 
 
     </script> 
