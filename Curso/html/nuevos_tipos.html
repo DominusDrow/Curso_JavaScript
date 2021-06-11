@@ -232,11 +232,44 @@
 
     let gen = generadorCuadrado();  //La variable ejecuta la funcion
 
-    for (const y of gen)    //la diferencia es que no espera a la anterior ejecucion
-        console.log(y);     //para ejecutar la siguiente 
+    //for (const y of gen)    la diferencia es que no espera a la anterior ejecucion
+    //    console.log(y);     para ejecutar la siguiente 
                             
 
+    //PROXIES *******************************************************
 
+    //es una forma de crear una copia de un objeto literal
+    const gente  = {
+        nombre: "",
+        apellido: "",
+        edad: 0
+    }
+    
+    const manejador = {
+        set(obj,prop,valor){    //aqui se pueden hacer validaciones sobre las propiedades
+
+            if(Object.keys(obj).indexOf(prop)==-1) 
+                return console.error("la proiedad ",prop," no existe");
+
+            if((/nombre|apellido/g.test(prop)) && !/^[a-z\s]{3,}$/ig.test(valor))
+                return console.error("el valor ",valor," no es correcto");
+
+            obj[prop]=valor;    //indica que se asigne al objeto la propiedad
+        }
+    }
+
+    const Alfredo = new Proxy(gente,manejador);
+
+    Alfredo.nombre="Alfredo";       //con un valor como "alfredo2" marcaria error
+    Alfredo.apellido= "Vasquez";
+    Alfredo.edad= 20;
+    //Alfredo.correo = "galacticovasque@gmai.com";      marcaria error
+
+    console.log(gente);
+    console.log(Alfredo);
+
+
+    //
     
 
 
