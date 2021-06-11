@@ -195,10 +195,49 @@
 
     //GENERADORES *******************************************************
 
+    //son como el return, nos sirven para hacer iterables a una funcion
+    function* generador (){         //se pone asterisco para indicar que es un generador
+        console.log("\nInicio del generador");
+        yield "holi";
+        console.log("sigue en ejecucion el generador");
+        yield "hola";
+        console.log("casi fin del generador");
+        yield "holu";
+    }
+
+    let iteradorr = generador(); //una variable que ejecuta nuestra funcion
+
+    console.log(iteradorr.next());  //se puede usar next igual que un iterable
+    console.log(iteradorr.next());
+    console.log(iteradorr.next());
+
+    //tambien lo podemos meter en un arreglo
+    let arregloY = [...generador()];    //por cada ejecucion de la funcion
+    console.log(arregloY);
+
+    //tambien puede funcionar para programacion asincrona NO BLOQUEANTE
+    function cuadraroYield(valor){
+        setTimeout(() => {
+            console.log({valor,resultado:valor*valor});
+        }, Math.random()*1000);
+    }
+
+    function* generadorCuadrado(){
+        yield cuadraroYield(0);
+        yield cuadraroYield(1);
+        yield cuadraroYield(2);
+        yield cuadraroYield(3);
+        yield cuadraroYield(4);
+    }
+
+    let gen = generadorCuadrado();  //La variable ejecuta la funcion
+
+    for (const y of gen)    //la diferencia es que no espera a la anterior ejecucion
+        console.log(y);     //para ejecutar la siguiente 
+                            
+
+
     
-
-
-
 
 
     </script> 
