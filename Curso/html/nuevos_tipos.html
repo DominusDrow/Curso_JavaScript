@@ -361,12 +361,60 @@
     //se soluciona devolvierndo un arrowfuntion
     const objct = new imprime4();
     objct();
+    console.log("\n");
 
 
-    //
+    //CALL, APLY, BIND
+
+    this.prop= "global"
+
+    function contexto (){
+        console.log(this.prop);     //importante poner this para diferenciar contextos
+    }
+
+    //call y aply sirven para llamar el contexto de otra hub
+    const person = {
+        prop:"objeto"
+    }
+
+    //si ejecutamos la funcion imprime el contexto global
+    contexto();   
+
+    //si usamos call podemos cambiar el contexto de la funcion
+    contexto.call(person);
+
+    function saludo(nombre){
+        console.log(`hola ${nombre} desde ${this.prop}`);
+    }  
+
+    //en call si la funcion tiene parametros los pasamos despues del contexto
+    saludo.call(person,"alfredo");
+
+    //en aply lo mismo solo que los pasamos en forma de arreglo
+    saludo.apply(this,["Ricardo"]);     //this o null indica el contexto en el que se encuentra
 
 
+    //bind sirve para enlazar dos contextos
+    const pereson1 = {
+        nombre:"Alvaro",
+        saludo: function(){
+            console.log("yo soy ",this.nombre);
+        }
+    }
 
+    const person2 = {
+        saludo: pereson1.saludo     //una forma de arreglarlo seria poner person1.saludo() parentesis
+    }
+
+    const person3 = {
+        saludo: pereson1.saludo.bind(pereson1)
+    }
+
+    //imprime undifained pues el nombre no esta definid0
+    person2.saludo();
+
+    //imprime alvaro pues enlazamos los contextos
+    person3.saludo();
 
     </script> 
 </body>
