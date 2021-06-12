@@ -283,9 +283,89 @@
 
     UsuariosR.forEach((nombre,index) => Usuarios[`id_${index}`]=nombre);    //se crean con notacion de []
     console.log(Usuarios);
+    console.log("\n");
+
+
+
+    //THIS
+
+    //la palabra hace referencia al contesto en el que estamos 
+    console.log(this);
+
+    //el contexto global en el front end es window
+    console.log(this===window);
+
+    //unas llaves abiertas simbolisan un contexto
+    {
+        //bloque 
+    }
+
+    //otra forma de declar una variable var
+    window.name = "contexto global";
+
+    const objeto1 = {
+        name:"Contexto objeto",
+        imprime(){
+            console.log(this.name);
+        }
+    }
+    //las funciones anonimas respetan el contexto dentro de un objeto
+    objeto1.imprime();
+
+    const objeto2 = {
+        name:"Contexto objeto2",
+        imprimir
+    }
+    //es lo mismo aunque la funcion sea pasada por parametro
+    objeto2.imprimir();
+
+    const objeto3 = {
+        name:"Ricardo",
+        imprime:()=>{
+            console.log(this.name);
+        }
+    }
+    //pero las arrowfuntions heredan el contexto del padre
+    objeto3.imprime();
+
+    function imprimir(){
+        console.log(this.name);
+    }
+    //imprime la variable name que encuentra ya que dentro de funtion no hay ninguna
+    imprimir();
+
+    function imprime2(name){
+        this.name=name;
+        console.log(this.name);
+    }
+    //Imprime la variable name del contexto donde se encuentra
+    imprime2("Alfredo");
+
+    function imprime3(){
+        this.name="alfonso";
+        return function(){
+            console.log(this.name);
+        }
+    }
+    //cuando se retorna una funcion esta tiene su pripio contexto
+    //al no encontrar el parametro dentro de ella lo toma del contexto global
+    const objc = new imprime3();
+    objc();
+
+    function imprime4(){
+        this.name="alfonso";
+        return ()=>{
+            console.log(this.name);
+        }
+    }
+    //se soluciona devolvierndo un arrowfuntion
+    const objct = new imprime4();
+    objct();
 
 
     //
+
+
 
 
     </script> 
