@@ -1,0 +1,11 @@
+{
+    "nombre":"Alfredo Omar",
+    "apellido":"Vasquez Lopez",
+    "edad": 20,
+    "casado": false,
+    "gustos":{
+        "anime":true,
+        "colores":["azul","morado"],
+        "series":true
+    }
+}
