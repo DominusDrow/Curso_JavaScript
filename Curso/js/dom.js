@@ -104,5 +104,47 @@ $linkDOM.setAttribute("rel","noopener");    //buena practica por seguridad
 
 //cambiar el enlace 
 $linkDOM.setAttribute("href","http://youtube.com");
+console.log("\n");
+
+
+//Estilos y variables CSS
+
+//se puede acceder con los metodos
+console.log($linkDOM.getAttribute("style"));
+
+//pero en el caso de propiedades CSS es mejor acceder con el punto
+console.log($linkDOM.style);
+console.log($linkDOM.style.backgroundColor);    //lo marca en rgb
+console.log($linkDOM.style.color);
+
+//tambien se puede acceder a sus propiedades CSS desde window
+console.log(getComputedStyle($linkDOM));    //las devuelve en forma de map
+console.log(getComputedStyle($linkDOM).color);  //una en especifico
+
+//podemos establecer propiedeades CSS dinamicamente 
+
+//con metodos 
+$linkDOM.style.setProperty("text-decoration","none");   //quita el remarcado
+$linkDOM.style.setProperty("display","block");  //lo pone en una linea independiente
+
+//con notacion de punto
+$linkDOM.style.width = "50%";     //que ancho abarca
+$linkDOM.style.textAlign = "center";  
+$linkDOM.style.marginLeft = "auto";
+$linkDOM.style.marginRight = "auto";
+$linkDOM.style.padding = "1rem";
+$linkDOM.style.borderRadius = "1rem";
+
+//Variables CSS - Custom Properties CSS
+const $html = document.documentElement,
+ $body = document.body;
+
+let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color"),
+ varYellowColor = getComputedStyle($html).getPropertyValue("--yellow-color");
+
+console.log(varDarkColor,varYellowColor);   
+
+$body.style.backgroundColor=varDarkColor;
+$body.style.color=varYellowColor;
 
 
