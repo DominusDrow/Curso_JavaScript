@@ -107,6 +107,7 @@ $linkDOM.setAttribute("href","http://youtube.com");
 console.log("\n");
 
 
+
 //Estilos y variables CSS
 
 //se puede acceder con los metodos
