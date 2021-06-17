@@ -1,6 +1,6 @@
 alert("Hola mundo");
 
-function sumar() {
+function sumar() {  	 	
 	
 	var elem1= document.getElementById("num1").value;
 	var elem2= document.getElementById("num2").value;
@@ -10,11 +10,11 @@ function sumar() {
 
 }
 
-let boton = document.querySelector("");
+let boton = document.querySelector("input[name]");
+
 
 console.log(boton);
-
-console.log(document.getElementById("num1").value);
+   
 
 
 parseInt("3");

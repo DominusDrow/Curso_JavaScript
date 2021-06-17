@@ -16,54 +16,63 @@
 		<h1>Proyecto Js</h1>
 	</header>
 	
-	<nav>
+	<nav class="menu">
 		<ul>
 			<li><a href="contenedor.html">Inicio</a></li>
 			<li><a href="../AI_texto_BN/Pagina_IA.html" >Pagina IA</a></li>
 		</ul>
 	</nav>
 
-	<section>
-		<fieldset>
+	<div class="articulos">		
+		<section>
+			<fieldset id="suma">
+			
+				<legend>Evento suma</legend>	
 		
-			<legend>Evento suma</legend>	
+				Num1: <input type="text" id="num1"><br><br>
+				Num2: <input type="text" id="num2"><br><br>
+				<input type="button" name="boton" value="calcular" >
+		
+			</fieldset>
+
+			<article>
+					<h2>Cambiar colores con IA</h2>
 	
-			Num1: <input type="text" id="num1"><br><br>
-			Num2: <input type="text" id="num2"><br><br>
-			<input type="button" name="boton" value="calcular" >
-	
-		</fieldset>
+				<time datetime="16-06-2021">Publicado Jun 2021</time>
+				<br/>
+				<p>
+					Se hace con la libreria <span>Nombre</span> Lorem ipsum dolor sit amet 
+					consectetur adipisicing elit. Incidunt ea repellendus iure maiores odit 
+					adipisci aliquam, nisi eaque quia debitis porro soluta optio tenetur et 
+					magni modi nesciunt possimus expedita.
+				</p>
+				<img src="http://placeimg.com/200/200" alt="Random">
+				<a href="../AI_texto_BN/Pagina_IA.html" target="_blank">Pagina IA</a>
+			</article>
 
-		<article>
-			<hgroup>
-				<h1>Cambiar Color con IA</h1>
-				<h2>con redes neuronales</h2>
-			</hgroup>
-			<time datetime="16-06-2021">Publicado Jun 2021</time>
-			<br/>
-			<p>
-				Se hace con la libreria <span>Nombre</span> Lorem ipsum dolor sit amet 
-				consectetur adipisicing elit. Incidunt ea repellendus iure maiores odit 
-				adipisci aliquam, nisi eaque quia debitis porro soluta optio tenetur et 
-				magni modi nesciunt possimus expedita.
-			</p>
-			<img src="http://placeimg.com/200/200" alt="Random">
-			<a href="../AI_texto_BN/Pagina_IA.html" target="_blank">Pagina IA</a>
-		</article>
+		</section>
+	</div>
 
-	</section>
+	<div class="aside"> 
+		<aside>
+			<h4>Anigamers</h4>
+			<ul>
+				<li>Top 10 animes</li>
+				<li>Desconocidos</li>
+			</ul>
+			<h4>Documentacion</h4>
+			<ul>
+				<li>Mozilla</li>
+				<li>Otros</li>
+			</ul>
+		</aside>
+	</div>
 
-	<aside>
-		Anigamers
-
-		Documentacion
-
-	</aside>
-
-	<footer>
-		Derechos reservados 2015-2021
-	</footer>
-
+	<div>
+		<footer class="footer">
+			Derechos reservados 2015-2021
+		</footer>
+	</div>
 
 	<script type="text/javascript" src="./js/contenido.js"></script>
 
