@@ -190,6 +190,38 @@ console.log($card.className);
 console.log("\n");
 
 
-//
+//TEXTO Y HTML
+
+const $texthtml = document.getElementById("texto");
+
+let text = `
+    <p>
+    El modelo de Objetos del Documento (<b><i>DOM </i></b>) es una API para
+    documentos HTML y XML.
+    </p>
+    <p>
+    Este proveé una representación estructural del documento, permitiendo
+    modificar su contenido y presentación visual mediante código JS.
+    </p>
+    <p>
+    <mark> El DOM no es parte de la especificacion de JavaScript, es una API 
+    para los navegadores </mark>
+    </p>
+`;
+
+//innerText nos permite ingresar solo texto aunque esta obsoleto
+$texthtml.innerText=text;
+
+//este es el oficial para insertar texto
+$texthtml.textContent=text;                 //no respeta identacion ni saltos de linea
+
+//innerHTML resive directamente codigo de etiquetas y remplaza el CONTENIDO del elemento
+$texthtml.innerHTML=text;
+
+//outerHTML remplaza directamente el elemento por lo que le pasemos
+$texthtml.outerHTML=text;
+
+
+
 
 
