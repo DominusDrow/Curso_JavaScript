@@ -223,5 +223,49 @@ $texthtml.outerHTML=text;
 
 
 
+//DOM traversing : recorriendo elementos del DOM
+
+const $cards = document.querySelector(".cards");
+console.log($cards);
+
+//para acceder a todos sus hijos Elementos
+console.log($cards.children);               //childNodes devuelve todos los nodos
+
+//accedemos a un hijo en especifico con notacion de arreglo
+console.log($cards.children[3]);
+
+//podemos acceder al primero y al ultimo automaticamente
+console.log("Primero",$cards.firstElementChild);      //con firstChild accedemos al primer nodo
+console.log("Ultimo",$cards.lastElementChild);
+
+//podemos acceder a los elementos hermanos
+console.log("hermano arriba",$cards.previousElementSibling);   
+console.log("hermano abajo",$cards.nextElementSibling);
+
+console.log($cards.children[3].nextElementSibling);
+
+//tambien podemos saber el padre 
+console.log("padre",$cards.lastChild.parentElement);
+
+//metodo nuevo que nos devuelve cual es la etiqueta mas cercana 
+console.log($cards.closest("div"));
+console.log($cards.closest("body"));
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
