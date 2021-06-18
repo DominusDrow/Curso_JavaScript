@@ -15,7 +15,7 @@ console.log(document);  //el arbol del DOM en el cual estan todos los elementos 
 console.log(document.body);
 console.log(document.head);
 console.log(document.documentElement);  //para obtener la etiqueta html
-console.log(document.doctype);      //para obtener el tipo de elemento
+console.log(document.doctype);      //para obtener el tipo de decomento (version)
 console.log(document.charset);      //obtener la etiqueta del lenguaje
 console.log(document.title);
 console.log(document.links);    
@@ -23,7 +23,7 @@ console.log(document.images);
 console.log(document.forms);
 console.log(document.styleSheets);  //obtener las hojas de estilo
 console.log(document.scripts);      //obtener los archivos javascript
-//document.write("<h2>Hola soy dinamico xd</h2>");    //escribe dinamicamente en el document
+//document.write("<h2>Hola soy dinamico xd</h2>");    //escribe dinamicamente en el document (mala)
 console.log("\n");
 
 
@@ -37,10 +37,10 @@ console.log("\n");
 //metodos obsoletos 
 console.log(document.getElementsByTagName("li")); //resive cualquier etiqueta (li, head, figure...)
 console.log(document.getElementsByClassName("card"));
-console.log(document.getElementsByName("nombre"));
+console.log(document.getElementsByName("nombre"));  //la propiedad name
 
 //metodos por los que han sido remplazados
-console.log(document.querySelector("#name"));    //# para id y . para clases
+console.log(document.querySelector("input[name='nombre']"));    //# para id y . para clases
 console.log(document.querySelectorAll("a"));    //para seleccionar todos, el anterior solo uno
 
 // sigue teniendo mejor rendimiento que querySelector
@@ -147,7 +147,49 @@ console.log(varDarkColor,varYellowColor);
 
 $body.style.backgroundColor=varDarkColor;
 $body.style.color=varYellowColor;
+console.log("\n");
+
+
+
+//Clases CSS
+
+const $card = document.querySelector(".card");
+console.log($card);
+
+//para acceder a una clases hay dos metodos
+console.log($card.className);       //devuelve unicamente los nombres de las clases
+console.log($card.classList);       //devuelve una lista con todas las clases de la etiqueta
+
+//podemos añadir, remover y comprobar clases en la lista
+console.log("card",$card.classList.contains("card"));   //devuelve si/no si esta la clase
+console.log("rotate-45",$card.classList.contains("rotate-45"));  
+
+$card.classList.add("rotate-45");       //añadimos una clase previamente creada
+console.log("rotate-45",$card.classList.contains("rotate-45"));  
+
+$card.classList.remove("rotate-45");       //removemos la clase
+console.log("rotate-45",$card.classList.contains("rotate-45"));  
+
+//el metodo si tiene la clase la quita, si no , la pone
+console.log("opacity-80",$card.classList.contains("opacity-80"));  
+$card.classList.toggle("opacity-80")
+console.log("opacity-80",$card.classList.contains("opacity-80"));  
+
+//repalce remplaza una clase por otra
+$card.classList.replace("opacity-80","rotate-45");  //primero el que se remplazara
+console.log("rotate-45",$card.classList.contains("rotate-45"));  
+console.log("opacity-80",$card.classList.contains("opacity-80"));  
+
+//todos estos metodos pueden recibir mas de un parametro (menos el replace)
+$card.classList.remove("card","rotate-45");
+console.log($card.className); 
+$card.classList.add("sepia","card")
+console.log($card.className); 
+$card.classList.toggle("sepia");
+console.log($card.className); 
+console.log("\n");
 
 
 //
+
 
