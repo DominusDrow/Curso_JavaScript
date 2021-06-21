@@ -325,9 +325,41 @@ $ul3.appendChild($fracmento);   //una unica insercion en el DOM
 
 
 
+//Templates
+const $template = document.getElementById("templete-card").content,
+    $fracmento2 = document.createDocumentFragment(),
+    cardContend = [{
+        title:"Tecnologia",
+        img:"http://placeimg.com/200/200/tech"
+    },
+    {
+        title:"Animales",
+        img:"http://placeimg.com/200/200/animals"
+    },
+    {
+        title:"Arquitectura",
+        img:"http://placeimg.com/200/200/arch"
+    },
+    {
+        title:"Gente",
+        img:"http://placeimg.com/200/200/people"
+    },
+    {
+        title:"Naturaleza",
+        img:"http://placeimg.com/200/200/nature"
+    }];
 
+cardContend.forEach(el =>{
+    console.log("a");
+    $template.querySelector("img").setAttribute("src",el.img);
+    $template.querySelector("img").setAttribute("alt",el.title);
+    $template.querySelector("figcaption").textContent=el.title;
 
+    let $clone = document.importNode($template,true);   //el true signigica copiar toda la estructura
+    $fracmento2.appendChild($clone);    //si no lo clonas causa error AAAA
+});
 
+$cards.appendChild($fracmento2);
 
 
 
