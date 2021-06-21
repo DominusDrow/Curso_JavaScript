@@ -252,13 +252,76 @@ console.log($cards.closest("div"));
 console.log($cards.closest("body"));
 
 
-//
+
+//CREAR ELEMENTOS Y FRACMENTOS HTML
+
+//se pueden crear nuevos elementos (nodos) con createElement
+const $figure = document.createElement("figure"),      
+    $image = document.createElement("img"),          // cualquier etiqueta valida de HTML o XML
+    $figCap = document.createElement("figcaption"),
+    $figCapTex = document.createTextNode("Animals");    //se pasa el texto no una etiqueta
+
+//se tienen que agrupar los elementos antes de insertarlos
+$figCap.appendChild($figCapTex);    
+$image.setAttribute("src","http://placeimg.com/200/200/animals");
+$image.setAttribute("alt","Animals");
+$figure.appendChild($image);  
+$figure.appendChild($figCap);
+$cards.appendChild($figure);    //el metodo appendChild sirve para añadir un nuvo hijo como nodo
+
+//a nuestra nueva figura se le tienen que agregar los estilos como las demas
+$figure.classList.add("card");
+ 
+//Otra manera de crear elementos dinamicamente (pero no se toman como nodos)
+const $figure2 = document.createElement("figure");
+
+$figure2.innerHTML = `
+    <img src="http://placeimg.com/200/200/people" alt="People">
+    <figcaption>People</figcaption>
+`;
+
+$figure2.classList.add("card");
+$cards.appendChild($figure2);
 
 
+//Si se quiere crear mas de UNA figura dinamicamente 
+const estaciones = ["Primaver","Verano","Otoño","Inverno"],
+    $ul = document.createElement("ul");
+
+document.write("<h3>Estaciones del Año</h3>");  //!!!!!No Es Buena Practica
+document.body.appendChild($ul);
+
+estaciones.forEach(el =>{
+    const $li = document.createElement("li");
+    $li.textContent=el;
+    $ul.appendChild($li);
+});
+
+//crear varios elementos tambien se puede hacer con innerHTML
+const continentes = ["America","Asia","Europa","Oceania","Africa"],
+    $ul2 = document.createElement("ul");
+
+document.write("<h3>Continentes del mundo</h3>");  //!!!!!No Es Buena Practica
+document.body.appendChild($ul2);
+
+continentes.forEach(el => $ul2.innerHTML+=`<li>${el}</li>`);
 
 
+//Fracmentos (para hacer SOLO UNA insercion al DOM), ahorra recursos
+const diasSemana = ["Lunes","Martes","Miercoles","Jueves","Vieres"],
+    $ul3 = document.createElement("ul"),
+    $fracmento = document.createDocumentFragment();
 
+document.write("<h3>Dias de la semana</h3>");  //!!!!!No Es Buena Practica
+document.body.appendChild($ul3);
 
+diasSemana.forEach(el =>{
+    const $li = document.createElement("li");
+    $li.textContent = el;
+    $fracmento.appendChild($li);
+});
+
+$ul3.appendChild($fracmento);   //una unica insercion en el DOM
 
 
 
