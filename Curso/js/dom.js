@@ -325,7 +325,7 @@ $ul3.appendChild($fracmento);   //una unica insercion en el DOM
 
 
 
-//Templates
+//TEMPLATE
 const $template = document.getElementById("templete-card").content,
     $fracmento2 = document.createDocumentFragment(),
     cardContend = [{
@@ -350,7 +350,6 @@ const $template = document.getElementById("templete-card").content,
     }];
 
 cardContend.forEach(el =>{
-    console.log("a");
     $template.querySelector("img").setAttribute("src",el.img);
     $template.querySelector("img").setAttribute("alt",el.title);
     $template.querySelector("figcaption").textContent=el.title;
@@ -362,5 +361,29 @@ cardContend.forEach(el =>{
 $cards.appendChild($fracmento2);
 
 
+
+//MODIFICANDO ELEMENTOD (old style)
+const $newCard = document.createElement("figure"),
+    $cloneCards = $cards.cloneNode(true);   //true indica copiar toda la estructura
+
+$newCard.innerHTML = `
+<img src="http://placeimg.com/200/200/any" alt="Any">
+<figcaption>Any</figcaption>
+`;
+$newCard.classList.add("card");
+
+//para remplazar un nodo 
+$cards.replaceChild($newCard,$cards.children[1]);
+
+//para reover un nodo
+$cards.removeChild($cards.firstElementChild);
+
+setTimeout(() => {
+    //para agregar antes de uno 
+    $cards.insertBefore($newCard,$cards.lastElementChild);
+}, 5000);
+
+//agregar el nodo clonado
+document.body.appendChild($cloneCards);
 
 
