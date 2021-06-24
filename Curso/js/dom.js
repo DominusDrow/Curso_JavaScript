@@ -387,3 +387,47 @@ setTimeout(() => {
 document.body.appendChild($cloneCards);
 
 
+
+//MODIFICANDO ELEMENTOD (cool style)
+
+const $newCard2 = document.createElement("figure");
+let content = `
+<img src="http://placeimg.com/200/200/any" alt="Any">
+<figcaption></figcaption>
+`;
+$newCard2.classList.add("card");
+
+//las pasociones dadas para los elementos isnterAtyacent...
+//beforebigin (hermano anterior)
+//afterbegin (primer hijo)
+//afterend (ultimo hijo)
+//beforeend (hermano posterior)
+
+//inserta un elemento (nodo)
+$cloneCards.insertAdjacentElement("beforebegin",$newCard2);
+
+//inserta contienido html en una posicion dada
+$newCard2.insertAdjacentHTML("afterbegin",content);
+
+//inserta contenido de texto
+$newCard2.querySelector("figcaption").insertAdjacentText("afterbegin","Any");
+
+//Metodos nativos de JQuery
+const $cloneCard = $newCard.cloneNode(true);
+
+//insertar como primer hijo
+$cloneCards.prepend($cloneCard);
+
+//como hermano anterior
+$cloneCards.before($cloneCard);
+
+//como ultimo hijo
+$cloneCards.append($cloneCard);
+
+//como hermano posterior
+$cloneCards.after($cloneCard);
+
+
+
+
+
