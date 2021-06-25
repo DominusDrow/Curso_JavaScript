@@ -465,6 +465,38 @@ $boton2.addEventListener("click",(e) => {
 
 
 
+//EVENTOS CON PARAMETROS Y REMOVER EVENTOS
+
+//las funciones manejadoras de eventos SOLO pueden recibir UN parametro (evento en si)
+//pero si nesesitamos pasar parametros solo envolvemos la funcion dentro de una arrow funtion
+
+function saludarN(nombre = "Desconocido") {
+    alert(`hola ${nombre}`);
+    console.log(event);
+}
+
+$boton2.addEventListener("click", (e) => saludarN("Alfredo"));
+
+//declaramos un boton dinamicamente
+const $boton3 = document.createElement("button");
+$boton3.textContent= "Evento con manejador multiple con remove";
+document.body.insertBefore($boton3,document.body.querySelectorAll("br")[12]);
+
+//para remover eventos las funciones manejadores deben ser declaradas
+const saludoM = (nombre = "Desconocido") => {
+    saludarN("Ricardo");
+    $boton3.removeEventListener("dblclick",saludoM);
+    $boton3.disabled = true;
+}
+
+$boton3.addEventListener("dblclick",saludoM);
+
+
+//
+
+
+
+
 
 
 
