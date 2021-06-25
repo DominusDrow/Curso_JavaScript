@@ -250,7 +250,7 @@ console.log("padre",$cards.lastChild.parentElement);
 //metodo nuevo que nos devuelve cual es la etiqueta mas cercana 
 console.log($cards.closest("div"));
 console.log($cards.closest("body"));
-
+console.log("\n");
 
 
 //CREAR ELEMENTOS Y FRACMENTOS HTML
@@ -426,6 +426,46 @@ $cloneCards.append($cloneCard);
 
 //como hermano posterior
 $cloneCards.after($cloneCard);
+
+
+
+//MANEJADORES DE EVENTOS DOM
+
+//las funciones que son manejadores tienen el atributo event
+function HolaMundo(){
+    alert("hola mundo");
+    console.log(event);
+} 
+
+//para los eventos semanticos tenemso que guardar el nodo del boton 
+const $boton1 = document.getElementById("evento-semantico");
+
+//la desventaja de las eventos semanticos es que solo se puede asignar uno por elemento
+//ponenmso directamante el nombre del evento a agregar
+//el evento es como un atributo
+$boton1.onclick = HolaMundo     //la funcion debe ir sin parentesis
+
+//si despues se asigna otra funcion al mismo evento este cambia como una variable
+$boton1.onclick = function(e){
+    alert("Hola mundo con evento semantico");
+    console.log(e);     //la funcion solo puede recibir un parametro y hacer referencia al propio event
+}
+
+//tambien se puede con un  MANEJADOR MULTIPLE
+const $boton2 = document.getElementById("evento-multiple");
+
+//resibe dos parametros , la clase de evento y la funcion a ejecutar
+$boton2.addEventListener("click",HolaMundo);
+
+//la ventaja que tiene es que se le pueden asignar distintas funcines a un mismo evento
+$boton2.addEventListener("click",(e) => {
+    alert("Hola mundo con manejador multiple");
+    console.log(e);
+});
+
+
+
+
 
 
 
