@@ -2,19 +2,16 @@ alert("Hola mundo");
 
 function sumar() {  	 	
 	
-	var elem1= document.getElementById("num1").value;
-	var elem2= document.getElementById("num2").value;
-	var suma = parsInt(elem1)+parsInt(elem2);
+	let num1 = document.getElementById("num1").value,
+		num2 = document.getElementById("num2").value;
 
-	alert("la suma es "+suma);
+	let suma = parseInt(num1)+parseInt(num2);
 
+	alert(`la suma es ${suma}`);
 }
 
-let boton = document.querySelector("input[name]");
+const $boton = document.querySelector("input[name='boton']");
+
+$boton.addEventListener("click",sumar);
 
 
-console.log(boton);
-   
-
-
-parseInt("3");
