@@ -492,7 +492,36 @@ const saludoM = (nombre = "Desconocido") => {
 $boton3.addEventListener("dblclick",saludoM);
 
 
-//
+ 
+//FLUJO DE LOS EVENTOS
+const $eventosDiv = document.querySelectorAll(".eventos div");
+
+function EventosFlujo(e) {
+    console.log(`Hola desde ${this.className} el evento lo origino ${e.target.className}`);    
+}
+
+$eventosDiv.forEach(div => {
+    //el flujo por defecto es borbuja (false)
+    //div.addEventListener("click",EventosFlujo);
+
+    //para indicar el evento captura ponemos como tercer parametro un true
+    //div.addEventListener("click",EventosFlujo,true);
+
+    //tambien le podemos pasar un objeto con mas parametros
+    div.addEventListener("click",EventosFlujo,{
+        //borbuja o captura
+        capture:true,
+        //si re repite uno o indifinidad veces 
+        once:true
+    });
+
+})
+
+
+
+
+
+
 
 
 
