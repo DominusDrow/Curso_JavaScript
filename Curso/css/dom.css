@@ -29,7 +29,7 @@
     filter: sepia(1);
 }
 
-.eventos div{
+.eventos div, .eventosD div{
     padding: 4rem;
     font-size: 2rem;
     text-align: center;

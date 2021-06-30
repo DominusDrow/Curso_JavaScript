@@ -537,6 +537,29 @@ $linkEvent.addEventListener("click", (e) => {
 
 
 
+//Delegacion de eventos
+
+//esto es util cuando haces peticiones asincrionas y no puedes
+//asignar eventos a elementos que aun no existen
+
+//creamos solo un evento click a todo el documento
+document.addEventListener("click", (e) => {
+    console.log("estas clickeando en: ",e.target);
+
+    //puedes indentificar si da click en una etiqueta especifica
+    if(e.target.matches(".eventosD a")){
+        alert("Vas a otra pagina");
+        e.preventDefault();
+    }
+
+    if(e.target.matches(".eventosD div")){
+        console.log("en evento se origino en: ",e.target.className);
+        //ya no es nesesario el metodo stopPropagation el evento no se propaga
+    }
+})
+
+
+
 
 
 
