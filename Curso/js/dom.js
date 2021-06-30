@@ -559,9 +559,39 @@ document.addEventListener("click", (e) => {
 })
 
 
+//ELEMENTOS DEL BOM
 
+//el evento se activa cuando la ventana se redimenciona
+window.addEventListener("resize", (e) => {
+    console.log("===Evento resize===");
+    
+    //nos trae las dimenciones de la ventana
+    console.log("ancho body: ",window.innerWidth);
+    console.log("alto body: ",window.innerHeight);
 
+    //nos trae las dimensiones de la pantalla
+    console.log("ancho ventana: ",window.outerWidth);    
+    console.log("alto ventana ",window.outerHeight);
+})
 
+//el evento se activa cuando se desplaza el scroll
+window.addEventListener("scroll", (e) => {
+    console.log("===Evento scroll===");
+    
+    //nos trae las dimenciones de la ventana
+    console.log("scroll x: ",window.scrollX);
+    console.log("scroll y: ",window.scrollY);
+
+})
+
+//el evento se activa cuando se carga el body (es buena practica)
+document.addEventListener("DOMContentLoaded", (e) => {
+    console.log("===DOMContentLoaded===");
+    
+    //nos trae las coordenadas de donde empieza la ventana
+    console.log(" x: ",window.screenX);
+    console.log(" y: ",window.screenY);
+})
 
 
 
