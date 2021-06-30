@@ -497,7 +497,9 @@ $boton3.addEventListener("dblclick",saludoM);
 const $eventosDiv = document.querySelectorAll(".eventos div");
 
 function EventosFlujo(e) {
-    console.log(`Hola desde ${this.className} el evento lo origino ${e.target.className}`);    
+    console.log(`Hola desde ${this.className} el evento lo origino ${e.target.className}`);  
+    //ek metodo stopPropagation hace que ya no se propague  
+    e.stopPropagation();
 }
 
 $eventosDiv.forEach(div => {
@@ -510,16 +512,28 @@ $eventosDiv.forEach(div => {
     //tambien le podemos pasar un objeto con mas parametros
     div.addEventListener("click",EventosFlujo,{
         //borbuja o captura
-        capture:true,
+        capture:false,
         //si re repite uno o indifinidad veces 
-        once:true
+        once:false
     });
 
 })
 
 
 
+//METODOS stopPropagation y preventDefault
 
+const $linkEvent = document.querySelector(".eventos a");
+
+$linkEvent.addEventListener("click", (e) => {
+    alert("Vas a otra pagina");
+    
+    //desactiva la propagacion de los eventos
+    e.stopPropagation();
+
+    //desactiva la ejecucion automatica de la accion (en caso de asincronia)
+    e.preventDefault();
+})
 
 
 
