@@ -619,4 +619,52 @@ $btnPrint.addEventListener("click", e => {
 })
 
 
-//
+//URL, HISTORIAL Y NAVEGADOR
+
+console.log("====Objeto URL (location)====");
+console.log(window.location);
+console.log(location.origin);
+console.log(location.protocol);
+console.log(location.host);
+console.log(localStorage.hostname);
+console.log(location.port);
+console.log(location.href);     //da el link completo 
+console.log(location.hash);     //para detectar parametros en el link
+console.log(location.search);   //busca parametros pasados por el link
+console.log(location.pathname); //la ruta relativa de la pagina
+//location.reload       para recargar la pagina
+
+console.log("====Objeto Historial (history)====");
+console.log(window.history);
+console.log(history.length);
+//history.forward(1)        //adelanta a las siguientes paginas
+//hsitory.back(2)           //regresa a las anteriores paginas
+//history.go(-2)            //puede adelantar o regresar paginas
+
+console.log("====Objeto Navegador (navigator)====");
+console.log(window.navigator);
+console.log(navigator.contention);
+console.log(navigator.geolocation);
+console.log(navigator.mediaDevices);    //si hay dispositivos conectados a la pc
+console.log(navigator.mimeTypes);
+console.log(navigator.onLine);      //si tenemos internet
+console.log(navigator.serviceWorker);
+console.log(navigator.storage);
+console.log(navigator.userAgent);   //informacion (navagador,sistema, version, etc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
