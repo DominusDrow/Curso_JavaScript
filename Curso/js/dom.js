@@ -595,7 +595,28 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 
 
+//BOM METODOS 
+
+let $btnOpen = document.getElementById("open-window"),
+    $btnClose = document.getElementById("close-window"),
+    $btnPrint = document.getElementById("print-window");
+
+let ventana;
+
+$btnOpen.addEventListener("click", e => {
+    //se puede guardar en una variable la referencia de una ventana abierta
+    ventana = window.open("http://youtube.com");
+})
+
+$btnClose.addEventListener("click", e => {
+    //se puede cerrar una ventana teniendo su referencia
+    ventana.close();
+})
+
+$btnPrint.addEventListener("click", e => {
+    //se puede imprimir toda la pagina 
+    window.print();
+})
 
 
-
-
+//
