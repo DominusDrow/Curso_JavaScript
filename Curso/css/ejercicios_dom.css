@@ -1,0 +1,54 @@
+body{
+	background: #dfe6e9;
+	margin: 0;
+	padding:0;
+}
+
+header{
+    padding: 0.5rem;
+	background:#fab1a0;
+    margin-bottom: 0;
+}
+
+header h1 {
+	text-align: center;
+	font-size: 170%;
+	color:black;
+}
+
+header button{
+    float: left;
+}
+
+section{
+    padding: 2rem;
+    margin: 1rem;
+}
+
+section h2{
+    text-align: center;
+}
+
+.menu-list{
+    background: gray;
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    visibility: hidden;
+}
+
+.menu-list li {
+    list-style: none;
+	margin-right: 2em;
+	margin-left: 2em;
+}
+
+
+.footer{
+	height: 3em;
+	background: #ff7675;
+	text-align: center;
+	color:#dfe6e9;
+	padding-top: 2em;
+	clear: both;
+}
