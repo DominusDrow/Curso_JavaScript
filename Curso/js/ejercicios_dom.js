@@ -1,20 +1,8 @@
+import hamburgerMenu from "./dom/menu_Hamburguesa.js";
 
-const $btnMenu = document.getElementById("menu"),
-    $menuList = document.querySelector(".menu-list"),
-    $secs = document.querySelectorAll("section"),
-    $fracmento = document.createDocumentFragment();
+const d = document;
 
-$secs.forEach(e =>{
-    const $li = document.createElement("li");
-    $li.textContent = e.firstElementChild.textContent;
-    $fracmento.appendChild($li);
+d.addEventListener("DOMContentLoaded", e => {
+    hamburgerMenu(".panel-btn",".panel",".menu a");
 })
 
-$menuList.querySelector("ul").appendChild($fracmento);
-
-$btnMenu.addEventListener("click", e => {
-    if($menuList.style.visibility === "visible")
-        $menuList.style.visibility = "hidden";
-    else 
-        $menuList.style.visibility = "visible";
-})
