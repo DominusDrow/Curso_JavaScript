@@ -565,11 +565,11 @@ document.addEventListener("click", (e) => {
 window.addEventListener("resize", (e) => {
     console.log("===Evento resize===");
     
-    //nos trae las dimenciones de la ventana
+    //nos trae las dimenciones del body
     console.log("ancho body: ",window.innerWidth);
     console.log("alto body: ",window.innerHeight);
 
-    //nos trae las dimensiones de la pantalla
+    //nos trae las dimensiones de la ventana
     console.log("ancho ventana: ",window.outerWidth);    
     console.log("alto ventana ",window.outerHeight);
 })

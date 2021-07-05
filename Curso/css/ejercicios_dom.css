@@ -3,7 +3,7 @@
 /*Asi se general variables en CSS*/
 :root{
 	--main-font: sans-serif;
-	--font-size: 16px;
+	--font-size: 16px;	
 	--main-color:#f7df1e;
 	--second-color:#222;
 	--main-modal-color:rgba(247,222,30,0.85);
@@ -92,7 +92,7 @@ header h1{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--main-color); 
+	background-color: var(--main-color);
 }
 
 .menu{

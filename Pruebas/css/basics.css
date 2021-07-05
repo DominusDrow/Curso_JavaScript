@@ -1,17 +1,26 @@
 
+:root{
+	--main-font: sans-serif;
+	--font-size: 16px;
+	--main-color: #C6E2FF;
+	--second-color:#222;
+	--article-color: #C7BEE1;
+	--footer-color: #6B463D;
+}
+
 body{
-	background: #C6E2FF;
+	background: var(--main-color);
 	margin: 0;
 	padding:0;
 }
 
 a{
 	text-decoration: none;	
-	color:#351C75;
+	color: var(--second-color);
 }
 
 .articulos article{
-	background: #C7BEE1;
+	background: var(--article-color);
 	padding: 1em;
 
 }
@@ -19,13 +28,14 @@ a{
 .articulos article{
 	background: #C7BEE1;
 	padding: 1em;
-
 }
 
 header{
-	border: 1px solid #182627;
-	background:#2A5D8A;
-
+	position:fixed;
+	top: 0;
+	width: 100vw;
+	height: 4em;
+	background:rgba(42, 93, 138, 0.91);
 }
 
 header h1 {
@@ -38,6 +48,7 @@ header h1 {
 	border: 1px solid #C4DAED;
 	background: #C4DAED;
 	margin-bottom: 2em;
+	margin-top: 3em;
 	text-align: center;
 	font-size: 120%;
 
@@ -73,9 +84,18 @@ header h1 {
 
 .aside{
 	display: inline-block;
-
+	width: 25%;
 	border: 1px solid whitesmoke;
-	margin-left: 3%;
+	margin-left: 2%;
+}
+
+.aside ul li a{
+	padding: 2rem;
+	width: inherit;
+	display: block;
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: var(--main-color);
 }
 
 .footer{
