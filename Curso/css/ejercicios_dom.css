@@ -61,6 +61,16 @@ header h1{
 	text-align: center;
 }
 
+.footer{
+	height: 3em;
+	background: #ff7675;
+	text-align: center;
+	color:#dfe6e9;
+	padding-top: 2em;
+	clear: both;
+}
+
+/*Estilos para el menu de hamburguesa */
 .panel{
 	position: fixed;
 	z-index: 998;
@@ -120,13 +130,22 @@ header h1{
 	background-color: var(--main-modal-color);
 }
 
+/*Estilos para el reloj digital*/
 
+.clock{
+	position: relative;
+	width: 50%;
+	height: 3rem;
+	left: 25%;
+	border-radius: 5%;
+    background-color:#333;
+    font-family: sans-serif;
+    font-size:45px;
+    text-shadow:0px 0px 1px #fff;
+    color:#fff;
+	visibility: hidden;
+}
 
-.footer{
-	height: 3em;
-	background: #ff7675;
-	text-align: center;
-	color:#dfe6e9;
-	padding-top: 2em;
-	clear: both;
+.clock-on{
+	visibility:visible;
 }
