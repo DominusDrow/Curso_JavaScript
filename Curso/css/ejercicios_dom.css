@@ -149,3 +149,25 @@ header h1{
 .clock-on{
 	visibility:visible;
 }
+
+/*Estilos para la pelota que se mueve*/
+
+.event-keys{
+	position: absolute;
+	right: 0;
+	left: 5%;
+	width: 90%;
+	height: 55%;
+	background: var(--second-color);
+}
+
+.ball{
+	position:relative;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background: var(--main-color);
+	transition:transform 0.3s ease;
+}
+
+
