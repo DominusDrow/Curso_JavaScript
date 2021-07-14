@@ -531,7 +531,7 @@ $linkEvent.addEventListener("click", (e) => {
     //desactiva la propagacion de los eventos
     e.stopPropagation();
 
-    //desactiva la ejecucion automatica de la accion (en caso de asincronia)
+    //desactiva la ejecucion automatica de la accion (en caso de asincronia) 
     e.preventDefault();
 })
 

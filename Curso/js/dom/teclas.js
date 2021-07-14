@@ -20,7 +20,7 @@ export function moveBall(ball,e){
         $ball.style.left = `${parseInt($ball.style.left)-1}rem`;
     }
 
-      
+        
 
 } 
 
