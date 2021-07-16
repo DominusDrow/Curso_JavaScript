@@ -1,27 +1,32 @@
 
-export function moveBall(ball,e){
-    const d = document,
-        $ball = d.querySelector(ball);
+//variables globales
+const  d = document;
+let x = 0,
+    y = 0;          //las variables van acá para que puedan acumular todas las iteracioes
 
-    $ball.style.left = "0rem";
-    $ball.style.top = "0rem";
-
-    if(e.keyCode === 40){
-        $ball.style.top = `${parseInt($ball.style.top)+1}rem`;
-
-    }
-    else if(e.keyCode === 38){
-        $ball.style.top = `${parseInt($ball.style.top)-1}rem`;
-    }
-    else if(e.keyCode === 39){
-        $ball.style.left = `${parseInt($ball.style.left)+1}rem`;
-    }
-    else if(e.keyCode === 37){
-        $ball.style.left = `${parseInt($ball.style.left)-1}rem`;
-    }
-
+export function moveBall(e,ball,scene){
+    const $ball = d.querySelector(ball),
+        $scene = d.querySelector(scene);
         
+    let limitScene = $scene.getBoundingClientRect(),
+        limitBall = $ball.getBoundingClientRect();
 
+    if(e.keyCode === 37 && limitBall.left>limitScene.left){
+        x--;
+    }
+    else if(e.keyCode === 38 && limitBall.top>limitScene.top){
+        y--;
+        e.preventDefault();     //desactiva la accion por defecto de las flechas
+    }   
+    else if(e.keyCode === 39 && limitBall.right<limitScene.right){
+        x++;
+    }
+    if(e.keyCode === 40 && limitBall.bottom<limitScene.bottom){
+        y++;
+        e.preventDefault();   
+    }
+
+    $ball.style.transform = `translate(${x*10}px,${y*10}px)`;
 } 
 
 export function shortCuts(e) {
