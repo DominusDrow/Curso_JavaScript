@@ -16,7 +16,8 @@ d.addEventListener("DOMContentLoaded", e => {
 //los eventos de teclado deben desencadenarse directamente del archivo padre
 d.addEventListener("keydown", (e) => {
     shortCuts(e);
-    moveBall(".ball",e);
+    moveBall(e,".ball",".event-keys");
+    
 })
 
 
