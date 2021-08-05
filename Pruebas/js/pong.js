@@ -1,6 +1,9 @@
 
 //variables globales
-const  d = document;
+const  d = document,
+    PLYRH = 70,
+    PLYRW = 48;
+
 let plyrX = 0,
     plyrY = 0,
     ballX = 0,
@@ -28,7 +31,7 @@ function mvPlayer(e,player,bg){
         e.preventDefault();  
     }
 
-    $plyr.style.transform = `translate(0px,${plyrY*12}px)`;
+    $plyr.style.transform = `translate(0px,${plyrY*24}px)`;
 }
 
 /**
@@ -52,9 +55,13 @@ function mvBall(ball,scene,player){
         ballX--;
     }
 
-    if(limitBall.right>(limitScene.right-20) && (limitBall.top>limitScene.top-10 && limitBall.top<limitScene.top+10 ) ){
+    if(limitBall.x>(limitPlyr.x-PLYRW)){
 
-        state=1;
+        if(limitBall.y>(limitPlyr.y-PLYRH) && limitBall.y<(limitPlyr.y+PLYRH))
+            state=1;
+        else if(limitBall.x>(limitPlyr.x+PLYRW))
+            ballX=ballY=0;
+            
     }
     else if(limitBall.left<limitScene.left){
         state=0;
@@ -76,7 +83,7 @@ d.addEventListener("keydown", (e) => {
 d.addEventListener("DOMContentLoaded", (e) => {
     setInterval(() => {
         mvBall(".ball",".background",".player");
-    },10);
+    },15);
 })
 
 

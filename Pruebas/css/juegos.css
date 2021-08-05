@@ -40,6 +40,7 @@ header h1 {
 
 .ball{
 	position: absolute;
+	top: 50%;
 	width: 5rem;
 	height: 5rem;
 	border-radius: 50%;
@@ -57,7 +58,8 @@ header h1 {
 .player{
 	position: absolute;
 	right:2.5%;
-    width: 3rem;
+	top: 48%;
+	width: 3rem;
     height: 20vh;
     background: #149491;
 }
