@@ -8,7 +8,9 @@ let plyrX = 0,
     plyrY = 0,
     ballX = 0,
     ballY = 0,
-    state = 0;
+    stateX = 0,
+    stateY = 0,
+    rmdm = 0;
 
 /*
  *funcion que mueve el rectangulo que pertenece al jugador
@@ -31,7 +33,7 @@ function mvPlayer(e,player,bg){
         e.preventDefault();  
     }
 
-    $plyr.style.transform = `translate(0px,${plyrY*24}px)`;
+    $plyr.style.transform = `translate(0px,${plyrY*30}px)`;
 }
 
 /**
@@ -48,27 +50,37 @@ function mvBall(ball,scene,player){
         limitPlyr = $plyr.getBoundingClientRect();
 
     
-    if(state===0){
+    if(stateX===0)
         ballX++;   
-    }
-    else if(state===1){
+    else if(stateX===1)
         ballX--;
-    }
+
+    if(stateY===0)
+        ballY--;
+    else if(stateY===1)
+        ballY++;
+    
 
     if(limitBall.x>(limitPlyr.x-PLYRW)){
 
-        if(limitBall.y>(limitPlyr.y-PLYRH) && limitBall.y<(limitPlyr.y+PLYRH))
-            state=1;
+        if(limitBall.y>(limitPlyr.y-PLYRH) && limitBall.y<(limitPlyr.y+PLYRH)){
+ 
+            stateX=1;
+        }
         else if(limitBall.x>(limitPlyr.x+PLYRW))
             ballX=ballY=0;
             
     }
     else if(limitBall.left<limitScene.left){
-        state=0;
+        stateX=0;
     }
 
+    if(limitBall.top<limitScene.top){
+        stateY=1;
+    }
+    else if (limitBall.bottom>limitScene.bottom)
+        stateY=0;
         
-    
 
     $ball.style.transform = `translate(${ballX*2}vh,${ballY*2}vh)`;
 }
@@ -85,8 +97,6 @@ d.addEventListener("DOMContentLoaded", (e) => {
         mvBall(".ball",".background",".player");
     },15);
 })
-
-
 
 
 
