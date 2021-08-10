@@ -64,3 +64,12 @@ header h1 {
     background: #149491;
 }
 
+.score{
+	position:relative;
+	margin: auto;
+	margin-top: 0;
+    font-family: sans-serif;
+    font-size:45px;
+	text-shadow:0px 0px 1px #fff;
+    color:#fff;
+}

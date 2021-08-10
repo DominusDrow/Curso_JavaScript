@@ -10,7 +10,7 @@ let plyrX = 0,
     ballY = 0,
     stateX = 0,
     stateY = 0,
-    rmdm = 0;
+    points = 0;
 
 /*
  *funcion que mueve el rectangulo que pertenece al jugador
@@ -40,11 +40,12 @@ function mvPlayer(e,player,bg){
  * funcion que mueve la pelota y la revota cuando detecta 
  * colisiones con el jugador o las paredes
  */
-function mvBall(ball,scene,player){
+function mvBall(ball,scene,player,score){
     const $ball = d.querySelector(ball),
         $scene = d.querySelector(scene),
-        $plyr = d.querySelector(player);
-        
+        $plyr = d.querySelector(player),
+        $scr = d.querySelector(score);
+
     let limitScene = $scene.getBoundingClientRect(),
         limitBall = $ball.getBoundingClientRect(),
         limitPlyr = $plyr.getBoundingClientRect();
@@ -63,21 +64,20 @@ function mvBall(ball,scene,player){
 
     if(limitBall.x>(limitPlyr.x-PLYRW)){
 
-        if(limitBall.y>(limitPlyr.y-PLYRH) && limitBall.y<(limitPlyr.y+PLYRH)){
- 
+        if(limitBall.y>(limitPlyr.y-PLYRH) && limitBall.y<(limitPlyr.y+PLYRH))
             stateX=1;
-        }
-        else if(limitBall.x>(limitPlyr.x+PLYRW))
+        
+        else if(limitBall.x>(limitPlyr.x+PLYRW)){
             ballX=ballY=0;
-            
+            $scr.textContent= ++points;
+        }
     }
-    else if(limitBall.left<limitScene.left){
+    else if(limitBall.left<limitScene.left)
         stateX=0;
-    }
-
-    if(limitBall.top<limitScene.top){
+    
+    if(limitBall.top<limitScene.top)
         stateY=1;
-    }
+    
     else if (limitBall.bottom>limitScene.bottom)
         stateY=0;
         
@@ -94,7 +94,7 @@ d.addEventListener("keydown", (e) => {
 
 d.addEventListener("DOMContentLoaded", (e) => {
     setInterval(() => {
-        mvBall(".ball",".background",".player");
+        mvBall(".ball",".background",".player",".score");
     },15);
 })
 
