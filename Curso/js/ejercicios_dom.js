@@ -2,6 +2,7 @@ import hamburgerMenu from "./dom/menu_Hamburguesa.js";
 import {relojDijital,alarmaDijital} from "./dom/relog.js";
 import {moveBall, shortCuts} from "./dom/teclas.js";
 import countdown from "./dom/countdown.js";
+import { upPage } from "./dom/scrollBottom.js";
 
 const d = document;
 
@@ -21,6 +22,10 @@ d.addEventListener("keydown", (e) => {
     
 })
 
+
+d.addEventListener("scroll", (e) => {
+    upPage(".btn");
+})
 
 
 
