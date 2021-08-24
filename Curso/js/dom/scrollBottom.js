@@ -15,8 +15,8 @@ export function scrollTop(btn){
     })
 
     d.addEventListener("click", (e) => {
-        if(e.target.matches===btn){
-            w.scrollTo({
+        if(e.target.matches(btn)){
+            w.scrollTo({            //propiedad que indica  altura del documento
                 behavior: "smooth",
                 top:0,
                 left:0
