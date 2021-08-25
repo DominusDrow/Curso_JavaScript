@@ -3,6 +3,7 @@ import {relojDijital,alarmaDijital} from "./dom/relog.js";
 import {moveBall, shortCuts} from "./dom/teclas.js";
 import countdown from "./dom/countdown.js";
 import {scrollTop} from "./dom/scrollBottom.js";
+import darkMode from "./dom/darkMode.js";
 
 const d = document;
 
@@ -15,6 +16,8 @@ d.addEventListener("DOMContentLoaded", e => {
     countdown(new Date(2021,11,25,0),"Countdown","JO, JO, JO, JO, JO");
 
     scrollTop(".btn-scroll");
+
+    darkMode(".btn-dark-mode","dark-mode");
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre
