@@ -2,20 +2,23 @@
 const d = document;
 
 export default function darkMode(btn,clase){
-    const $btn = d.querySelector(btn);
+    const $btn = d.querySelector(btn),
+        $elemDark = d.querySelectorAll("[data-dark]");  //hacer dinamica la asignacion
+
+    let darktheme;
 
     d.addEventListener("click", e =>{
         
-     
-
         if(e.target.matches(btn)){
             $btn.textContent = ($btn.textContent === "🌙")
             ? "☀️"
             : "🌙";
 
-            d.body.classList.toggle(cl);
+            $elemDark.forEach( el => el.classList.toggle(clase));
         }
 
 
     })
+
+    
 }
