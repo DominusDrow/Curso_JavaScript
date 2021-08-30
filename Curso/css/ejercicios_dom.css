@@ -35,7 +35,7 @@ body{
 }
 
 
-/****Menu de hamburguesa****/
+/**************** Menu de hamburguesa ****************/
 
 header{
 	position: sticky;	/*se comporta estatico cuando llega al top*/
@@ -70,7 +70,7 @@ header h1{
 	clear: both;
 }
 
-/*Estilos para el menu de hamburguesa */
+/**************** Estilos para el menu de hamburguesa ****************/
 .panel{
 	position: fixed;
 	z-index: 998;
@@ -130,7 +130,7 @@ header h1{
 	background-color: var(--main-modal-color);
 }
 
-/*Estilos para el reloj digital*/
+/**************** Estilos para el reloj digital ****************/
 
 .clock{
 	position: relative;
@@ -150,7 +150,7 @@ header h1{
 	visibility:visible;
 }
 
-/*Estilos para la pelota que se mueve*/
+/**************** Estilos para la pelota que se mueve ****************/
 
 .event-keys{
 	display: flex;
@@ -172,7 +172,7 @@ header h1{
 	font-weight: bold;
 }
 
-/*Estilos para el scroll*/
+/*************** Estilos para el scroll ****************/
 
 .btn-scroll{
 	position:fixed;
@@ -202,7 +202,7 @@ header h1{
 }
 
 
-/** DARK MODE**/
+/*************** DARK MODE ***************/
 .btn-dark-mode{
 	position:fixed;
 	z-index: 998;
@@ -231,3 +231,10 @@ header h1{
 }
 
 
+.dark-mode article{
+	background: var(--main-color);
+}
+
+.dark-mode div{
+	background: var(--second-color);
+}
