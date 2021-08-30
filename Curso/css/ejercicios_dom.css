@@ -34,11 +34,9 @@ body{
 	height: auto;
 }
 
-
-/**************** Menu de hamburguesa ****************/
-
 header{
 	position: sticky;	/*se comporta estatico cuando llega al top*/
+	z-index: 999;
 	top: 0;
 	padding: 1rem;
 	background-color: var(--main-color);
@@ -230,11 +228,6 @@ header h1{
 	background: var(--second-color);
 }
 
-
 .dark-mode article{
-	background: var(--main-color);
-}
-
-.dark-mode div{
-	background: var(--second-color);
+	background: rgb(65, 65, 65);
 }
