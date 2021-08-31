@@ -231,3 +231,10 @@ header h1{
 .dark-mode article{
 	background: rgb(65, 65, 65);
 }
+
+/*************** RESPONSIVE CON JS ***************/
+#youtube iframe{
+	width: 560;
+	height: 315;
+}
+
