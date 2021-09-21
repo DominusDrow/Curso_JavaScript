@@ -2,19 +2,21 @@
 const d = document,
     w = window;
 
-export default function responsiveTester (site,w,h,open,close){
-    const $site = d.getElementById(site),
+export default function responsiveTester (form,site,w,h){
+    const $form = d.querySelector(form),
+        $site = d.getElementById(site),
         $with = d.getElementById(w),
-        $high = d.getElementById(h),
-        $btnO = d.getElementById(open),
-        $btnC = d.getElementById(close);
-       
+        $high = d.getElementById(h);
 
-    d.addEventListener("click", e => {
-        if(e.target.matches(`#${open}`)){
-            window.open("http://youtube.com");
+    let window;
+
+    d.addEventListener("submit", e => {
+        if(e.target.matches(form)){
+           window =  w.open($site.textContent);
+           
         }
-            
     })
+
+    
 
 }
