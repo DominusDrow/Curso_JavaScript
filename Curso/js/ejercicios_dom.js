@@ -34,7 +34,7 @@ d.addEventListener("DOMContentLoaded", e => {
         `<a href="https://goo.gl/maps/9W1hyBu7hatqU2bG6">Ver mapa</a>`
     )
 
-    responsiveTester(".form","site","with","high");
+    responsiveTester("resposive-tester");
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre
