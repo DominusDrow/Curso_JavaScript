@@ -238,3 +238,26 @@ header h1{
 	height: 315;
 }
 
+/*************** DETEC CONNECTION WITH NAVEGATOR ***************/
+/*declarar propiedades comounes para dos clases*/
+.online,
+.offline{
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	width:100%;
+	padding: 1rem;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;;
+	background-color: green;
+	color: #fff;
+}
+
+/*sobrescribir una clase*/
+.offline{
+	background-color: red;
+}
+
+
+

@@ -6,10 +6,12 @@ import {scrollTop} from "./dom/scrollBottom.js";
 import darkMode from "./dom/darkMode.js";
 import resposiveJs from "./dom/responsive.js";
 import responsiveTester from "./dom/responsiveTester.js";
+import detectDivices from "./dom/userAgent.js";
+import connection from "./dom/detectConnection.js";
 
 const d = document;
 
-d.addEventListener("DOMContentLoaded", e => {
+d.addEventListener("DOMContentLoaded", () => {
     hamburgerMenu(".panel-btn",".panel",".menu a");
 
     relojDijital(".clock","#btn-clock","#btn-clock-off","clock-on");
@@ -35,6 +37,9 @@ d.addEventListener("DOMContentLoaded", e => {
     )
 
     responsiveTester("resposive-tester");
+
+    detectDivices("userAgent");
+
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre
@@ -44,5 +49,7 @@ d.addEventListener("keydown", (e) => {
     
 })
 
+//los eventos de conecion no se cargan junto con el documento
+connection();
 
 
