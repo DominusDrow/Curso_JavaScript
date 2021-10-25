@@ -8,6 +8,7 @@ import resposiveJs from "./dom/responsive.js";
 import responsiveTester from "./dom/responsiveTester.js";
 import detectDivices from "./dom/userAgent.js";
 import connection from "./dom/detectConnection.js";
+import webCam from "./dom/cam.js";
 
 const d = document;
 
@@ -39,6 +40,8 @@ d.addEventListener("DOMContentLoaded", () => {
     responsiveTester("resposive-tester");
 
     detectDivices("userAgent");
+
+    webCam("cam");
 
 })
 
