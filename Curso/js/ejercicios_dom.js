@@ -41,7 +41,7 @@ d.addEventListener("DOMContentLoaded", () => {
 
     detectDivices("userAgent");
 
-    webCam("cam");
+    webCam("cam","video");
 
 })
 
