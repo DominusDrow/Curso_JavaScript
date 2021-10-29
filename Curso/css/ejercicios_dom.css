@@ -77,6 +77,7 @@ header h1{
 	right: 0;
 	left: 0;
 	width: 100%;
+	overflow-y:auto; /*para que se pueda debordar verticalmente*/
 	background-color: var(--second-modal-colar);
 	/*de arriba*/
 	transform: translate(0,-100%);
@@ -264,5 +265,20 @@ header h1{
 	width: 450;
 	height: 720;
 }
+
+/*************** WORD FILTER***************/
+.card{
+    display: inline-block;
+    background-color: var(--dark-color);
+    color: var(--yellow-color);
+}
+
+.card figcaption{
+    padding: 1rem;
+}
+
+
+
+
 
 

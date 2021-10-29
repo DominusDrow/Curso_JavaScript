@@ -9,6 +9,7 @@ import responsiveTester from "./dom/responsiveTester.js";
 import detectDivices from "./dom/userAgent.js";
 import connection from "./dom/detectConnection.js";
 import webCam from "./dom/cam.js";
+import geolocation from "./dom/geolocation.js";
 
 const d = document;
 
@@ -42,6 +43,10 @@ d.addEventListener("DOMContentLoaded", () => {
     detectDivices("userAgent");
 
     webCam("cam","video");
+
+    geolocation("location");
+
+    searchFilter("seccion10");
 
 })
 
