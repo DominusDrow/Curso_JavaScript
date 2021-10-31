@@ -269,16 +269,17 @@ header h1{
 /*************** WORD FILTER***************/
 .card{
     display: inline-block;
-    background-color: var(--dark-color);
-    color: var(--yellow-color);
+    background-color: var(--second-color);
+    color: var(--main-color);
 }
 
 .card figcaption{
     padding: 1rem;
 }
 
-
-
+.noneCard{
+	display:none;
+}
 
 
 
