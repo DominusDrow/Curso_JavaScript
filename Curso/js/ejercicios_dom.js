@@ -11,6 +11,7 @@ import connection from "./dom/detectConnection.js";
 import webCam from "./dom/cam.js";
 import geolocation from "./dom/geolocation.js";
 import searchFilter from "./dom/wordfilter.js";
+import giveaway from "./dom/digitalLottery.js";
 
 const d = document;
 
@@ -49,6 +50,7 @@ d.addEventListener("DOMContentLoaded", () => {
 
     searchFilter("searchVar",".card");
 
+    giveaway(".list","#lottery");
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre
