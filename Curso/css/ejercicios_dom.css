@@ -287,5 +287,69 @@ header h1{
 	display:none;
 }
 
+/*************** SLIDER ***************/
+.slider{
+	position: relative;
+	width: 80%;
+	margin: 1rem auto;
+	text-align: center;
+}
+
+.slider-slides{
+	position: relative;
+	height: 400px;
+}
+
+.slide{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 1s ease;
+}
+
+.slide img {
+	height: inherit; /*Hereda la propiedad*/
+	width: inherit;
+	object-fit: cover; /*Adapta la imagen al ancho del contenedor*/
+	object-position: 50% 0%; /*Mueve la posicion de la imagen adaptada*/
+}
+
+.slide.active{
+	opacity: 1;
+	visibility: visible; 
+}
+
+.slider-btn{
+	position: absolute; /*para poder controlar su posicion*/
+	width: 100%;
+	top: 50%;
+	display: flex;
+	justify-content: space-between;
+	font-size: 3rem;
+	font-weight: bold;
+}
+
+.slider a{
+	display: block;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%;
+	border: thin solid #000;
+	text-decoration: none;
+	background-color #fff;
+	color: #000;
+	transition: all 0.3s ease;
+}
+
+.slider a:hover{
+	color: #4d4d4d;
+}
+
+
+
 
 
