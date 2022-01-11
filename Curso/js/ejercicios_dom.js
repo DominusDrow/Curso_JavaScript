@@ -13,6 +13,7 @@ import geolocation from "./dom/geolocation.js";
 import searchFilter from "./dom/wordfilter.js";
 import giveaway from "./dom/digitalLottery.js";
 import slider from "./dom/responsiveSlider.js";
+import newMenu  from "./dom/scrollspy.js";
 
 const d = document;
 
@@ -54,6 +55,8 @@ d.addEventListener("DOMContentLoaded", () => {
     giveaway(".list","#lottery");
 
     slider(".slide", "#prev", "#next");
+
+    newMenu(".panel", ".menu", "(min-width: 1024px)");
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre

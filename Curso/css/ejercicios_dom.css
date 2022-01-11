@@ -350,6 +350,30 @@ header h1{
 }
 
 
+/*************** SCROLLSPY ***************/
+.panel-scroll-spy{
+	position: fixed;
+	z-index: 998;
+	top: 10%;
+	left: 83%;
+	width: 17%;
+	overflow-y: visible; 
+	transform: translate(0,0);
+}
+ 
+.menu-scroll-spy{
+	width: 100%;	
+	text-align: left;
+}
 
+.menu-scroll-spy a{
+	padding: 1rem;
+	font-size: 0.9rem;
+	transition: all 0.3s ease;		/*cuando ponga el mouse en el enlaza (hover)*/
+}
 
-
+.scroll-spy {	/*enlazes dentro de menu*/
+	font-weight: bold;
+	color: var(--second-color);
+	background-color: var(--main-modal-color);
+}
