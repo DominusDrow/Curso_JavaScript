@@ -340,7 +340,7 @@ header h1{
 	border-radius: 50%;
 	border: thin solid #000;
 	text-decoration: none;
-	background-color #fff;
+	background-color: #fff;
 	color: #000;
 	transition: all 0.3s ease;
 }
@@ -351,29 +351,63 @@ header h1{
 
 
 /*************** SCROLLSPY ***************/
-.panel-scroll-spy{
-	position: fixed;
-	z-index: 998;
-	top: 10%;
-	left: 83%;
-	width: 17%;
-	overflow-y: visible; 
-	transform: translate(0,0);
-}
- 
-.menu-scroll-spy{
-	width: 100%;	
-	text-align: left;
+@media screen and (min-width: 1024px){ /*otra farma de poner mediaquerys*/
+	body{
+		display: grid;
+		grid-template-columns: 80% 20%;
+		grid-template-rows: 4rem auto;
+		grid-template-areas: 
+			"header header"
+			"main 	panel";
+	}
+	main{
+		grid-area: main;
+	}
+
+	header{
+		grid-area: header;
+	}
+
+	.panel{
+		grid-area: panel;
+		align-self: start;
+		position: sticky;
+		top: 4rem;
+		justify-content: flex-start;
+		background-color: var(--second-color);
+		transform: translate(0,0);
+		opacity: 0.9;
+		visibility: visible;
+	}
+	
+	.panel-btn{
+		display: none;
+		visibility: hidden;
+	}
+
+	.menu{
+		justify-content: start;
+		text-align: right;
+	}
+	
+	.menu a{
+		font-size: 1rem;
+		padding: 0.75rem;
+	}
+
+	/*si se cumple una de las dos se aplican los estilos*/
+	.menu a:hover,
+	.menu a.active{
+		color: var(--second-color);
+		background-color: var(--main-color);
+	}
+
+	.btn-scroll{
+		right: initial;
+		left: calc(4.25rem + 1vw); /*Movemos el boton flechita a la izquierda*/
+	}
+
 }
 
-.menu-scroll-spy a{
-	padding: 1rem;
-	font-size: 0.9rem;
-	transition: all 0.3s ease;		/*cuando ponga el mouse en el enlaza (hover)*/
-}
 
-.scroll-spy {	/*enlazes dentro de menu*/
-	font-weight: bold;
-	color: var(--second-color);
-	background-color: var(--main-modal-color);
-}
+

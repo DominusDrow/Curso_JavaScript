@@ -1,27 +1,27 @@
-const d = document,
-    w = window;
+const d = document;
 
 export default function newMenu(panel, menu, mq){
-
     
-    const $panel = d.querySelector(panel),
-        $menu = d.querySelector(menu);
-    let breackPoint = w.matchMedia(mq);
+    const $sections = d.querySelectorAll("section[data-scroll-spy]");
+    
+    const cb = entries => {
+        entries.forEach(entry =>{
+            const id =  entry.target.getAttribute("id");
+            if(entry.isIntersecting){
+                d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.add("active");
+            }  
+            else{
+                d.querySelector(`a[data-scroll-spy][href="#${id}"]`).classList.remove("active");
+            }
+        });
+    };
 
-    const spymenu = e => {
-        if(e.matches){
-            $panel.classList.add("panel-scroll-spy");
-            $menu.classList.add("menu-scroll-spy")
-        }
-        else{
-            $panel.classList.remove("panel-scroll-spy");
-            $menu.classList.remove("menu-scroll-spy")
-        }
-            
-    }
+    const observer = new IntersectionObserver(cb,{
+        threshold: [0.5,0.75],
+    });
 
-    breackPoint.addListener(spymenu);
-    spymenu(breackPoint);
-
+    $sections.forEach(el => observer.observe(el));
 }
+
+
 

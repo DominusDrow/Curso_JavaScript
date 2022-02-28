@@ -14,6 +14,7 @@ import searchFilter from "./dom/wordfilter.js";
 import giveaway from "./dom/digitalLottery.js";
 import slider from "./dom/responsiveSlider.js";
 import newMenu  from "./dom/scrollspy.js";
+import smartVideo from "./dom/SmartVideo.js"
 
 const d = document;
 
@@ -57,6 +58,8 @@ d.addEventListener("DOMContentLoaded", () => {
     slider(".slide", "#prev", "#next");
 
     newMenu(".panel", ".menu", "(min-width: 1024px)");
+
+    smartVideo(".video");
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre
