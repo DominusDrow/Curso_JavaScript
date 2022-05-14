@@ -1,0 +1,46 @@
+/*congfigs to Hamburger menu*/
+
+:root{
+	--second-modal-colar:rgba(42, 93, 138, 0.90);
+	--container-with:1200px;
+}
+
+.btn-menu{
+	position: fixed;	/*posicion fija*/
+	z-index: 999;	/*todo el continido aparece detras del boton*/	
+	top: 2.5vh;
+	right: 2vw;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background-color: #C6E2FF;
+	border-color: #2A5D8A;
+	visibility: hidden;
+}
+
+.btn-menu-is-active{
+	visibility: visible	;
+}
+
+.articulos-size{
+	width: 96%;
+}
+
+.aside-off{
+	position:fixed;
+	z-index: 998;	/*por debajo de el boton y de la barra*/
+	top: 4em;
+	bottom: 0;
+	right: 0;
+	width: 50%;
+	background-color: var(--second-modal-colar);
+	/*de derecha*/
+	transform: translate(100%,0);
+}
+
+.aside-on{
+	transform: translate(0,0);
+	/*para agregar animacion*/
+	transition:transform 0.3s ease;
+}
+
