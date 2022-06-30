@@ -5,13 +5,17 @@ const $btn = d.querySelector("#start");
 const ctx = $snake.getContext("2d");
 
 const snake = [
-	{x:20, y:20},
-	{x:40, y:20},
-	{x:60, y:20},
+	{x:20, y:20, d:1},
+	{x:40, y:20, d:1},
+	{x:60, y:20, d:1},
 ]
 
+//cuadro donde cambia de dirección
 let rectControl = null;
-let stateNow = 1, stateBefore = 1;
+//contador para el cambio de dirección
+let countSnake = 3;
+//la nueva dirección que toma
+let direction = 0;
 
 d.addEventListener("DOMContentLoaded", () => {
 	init();
@@ -54,21 +58,26 @@ const playSnake = () => {
 	setInterval(() => {
 		ereaseSnake();
 		for(let el  of snake){
-			if(rectControl){
+			if(countSnake > 0 && rectControl)
+				if(el.x === rectControl.x && el.y === rectControl.y){
+					el.d = direction;
+					countSnake -= 1;
+				}
 
-			if( (stateBefore == 1 && el.x < rectControl.x && el.y === rectControl.y) || (stateNow == 1 && el.x >= rectControl.x && el.y === rectControl.y))
+			if()
+
+
+			if( el.d == 1 )
 				el.x = el.x + 20;
-			else if((stateBefore == 2 && el.y < rectControl.y && el.x === rectControl.x) || (stateNow == 2 && el.y >= rectControl.y && el.x === rectControl.x))
+			else if( el.d == 2 )
 				el.y = el.y + 20;
-			else if((stateBefore == 3 && el.x > rectControl.x && el.y === rectControl.y) || (stateNow == 3 && el.x <= rectControl.x && el.y === rectControl.y))
+			else if( el.d == 3 )
 				el.x = el.x - 20;
-			else if((stateBefore == 4 && el.y > rectControl.y && el.x === rectControl.x) || (stateNow == 4 && el.y <= rectControl.y) && el.x === rectControl.x)
+			else if( el.d == 4 )
 				el.y = el.y - 20;
 
-			}
-			else 
-				el.x = el.x + 20;
 		}
+
 		drawSnake();
 	},200)
 }
@@ -76,24 +85,16 @@ const playSnake = () => {
 
 const moveSnake = e => {
 
-	console.log(snake)
-	rectControl = snake[snake.length - 1];
+	countSnake = snake.length;
+	rectControl = snake.at(-1);
 
-  if(e.keyCode === 37){
-		stateBefore = stateNow;
-		stateNow = 3;
-  }
-  else if(e.keyCode === 38){
-		stateBefore = stateNow;
-		stateNow = 4;
-  }   
-  else if(e.keyCode === 39){
-		stateBefore = stateNow;
-		stateNow = 1;
-  }
-  else if(e.keyCode === 40){
-		stateBefore = stateNow;
-		stateNow = 2;
-  }
+  if(e.keyCode === 37)
+		direction = 3;
+  else if(e.keyCode === 38)
+		direction = 4;
+  else if(e.keyCode === 39)
+		direction = 1;
+  else if(e.keyCode === 40)
+		direction = 2;
 
 }
