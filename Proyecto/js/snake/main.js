@@ -10,12 +10,9 @@ const snake = [
 	{x:60, y:20, d:1},
 ]
 
-//cuadro donde cambia de dirección
+//controlar el cambio de estado
+let flagSnake = true;
 let rectControl = null;
-//contador para el cambio de dirección
-let countSnake = 3;
-//la nueva dirección que toma
-let direction = 0;
 
 d.addEventListener("DOMContentLoaded", () => {
 	init();
@@ -58,14 +55,11 @@ const playSnake = () => {
 	setInterval(() => {
 		ereaseSnake();
 		for(let el  of snake){
-			if(countSnake > 0 && rectControl)
-				if(el.x === rectControl.x && el.y === rectControl.y){
-					el.d = direction;
-					countSnake -= 1;
-				}
 
-			if()
-
+			if(flagSnake && (el.d != snake.at(-1).d) && (el.x == rectControl.x && el.y == rectControl.y)){
+				el.d = snake.at(-1).d
+				flagSnake = false;
+			}
 
 			if( el.d == 1 )
 				el.x = el.x + 20;
@@ -76,6 +70,8 @@ const playSnake = () => {
 			else if( el.d == 4 )
 				el.y = el.y - 20;
 
+			if(el === snake.at(-1))
+				flagSnake = true
 		}
 
 		drawSnake();
@@ -84,17 +80,17 @@ const playSnake = () => {
 
 
 const moveSnake = e => {
-
-	countSnake = snake.length;
 	rectControl = snake.at(-1);
-
+	console.log(snake);
+	console.log(rectControl);
   if(e.keyCode === 37)
-		direction = 3;
+		snake[snake.length - 1].d = 3;
   else if(e.keyCode === 38)
-		direction = 4;
+		snake[snake.length - 1].d = 4;
   else if(e.keyCode === 39)
-		direction = 1;
+		snake[snake.length - 1].d = 1;
   else if(e.keyCode === 40)
-		direction = 2;
+		snake[snake.length - 1].d = 2;
 
 }
+
