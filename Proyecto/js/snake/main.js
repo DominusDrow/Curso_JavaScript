@@ -8,10 +8,13 @@ const snake = [
 	{x:20, y:20, d:1},
 	{x:40, y:20, d:1},
 	{x:60, y:20, d:1},
+	{x:80, y:20, d:1},
+	{x:100, y:20, d:1},
 ]
 
 //controlar el cambio de estado
 let flagSnake = true;
+//donde da la vuelta la serpiente
 let rectControl = null;
 
 d.addEventListener("DOMContentLoaded", () => {
@@ -54,10 +57,10 @@ const ereaseSnake = () =>{
 const playSnake = () => {
 	setInterval(() => {
 		ereaseSnake();
-		for(let el  of snake){
-
+		snake.forEach( (el,i) => { 
+			
 			if(flagSnake && (el.d != snake.at(-1).d) && (el.x == rectControl.x && el.y == rectControl.y)){
-				el.d = snake.at(-1).d
+				el.d = nearDirection(el.d,i);
 				flagSnake = false;
 			}
 
@@ -72,17 +75,19 @@ const playSnake = () => {
 
 			if(el === snake.at(-1))
 				flagSnake = true
-		}
+		});
 
-		drawSnake();
-	},200)
+	drawSnake();
+	},300)
 }
 
 
 const moveSnake = e => {
-	rectControl = snake.at(-1);
-	console.log(snake);
-	console.log(rectControl);
+	rectControl = {
+		x:snake.at(-1).x,
+		y:snake.at(-1).y,
+	};
+
   if(e.keyCode === 37)
 		snake[snake.length - 1].d = 3;
   else if(e.keyCode === 38)
@@ -94,3 +99,14 @@ const moveSnake = e => {
 
 }
 
+//Toma la dirección del más cercano
+const nearDirection = (direct,ind) => {
+
+	for(let j = ind; j < snake.length; j++){
+		if(direct != snake[j].d){
+			console.log(snake[j].d);
+			return snake[j].d;
+		}
+	}
+
+}
