@@ -12,8 +12,10 @@ const snake = [
 	{x:100, y:20, d:1},
 ]
 
-//direccion que va tomando la serpiente
-let direction = 1;
+//controlar el cambio de estado
+let flagSnake = true;
+//donde da la vuelta la serpiente
+let rectControl = null;
 
 d.addEventListener("DOMContentLoaded", () => {
 	init();
@@ -57,10 +59,10 @@ const playSnake = () => {
 		ereaseSnake();
 		snake.forEach( (el,i) => { 
 			
-			if(el == snake[snake.length - 1])
-				el.d = direction;
-			else 
-				el.d = snake[i + 1].d;
+			if(flagSnake && (el.d != snake.at(-1).d) && (el.x == rectControl.x && el.y == rectControl.y)){
+				el.d = nearDirection(el.d,i);
+				flagSnake = false;
+			}
 
 			if( el.d == 1 )
 				el.x = el.x + 20;
@@ -71,6 +73,8 @@ const playSnake = () => {
 			else if( el.d == 4 )
 				el.y = el.y - 20;
 
+			if(el === snake.at(-1))
+				flagSnake = true
 		});
 
 	drawSnake();
@@ -79,15 +83,30 @@ const playSnake = () => {
 
 
 const moveSnake = e => {
+	rectControl = {
+		x:snake.at(-1).x,
+		y:snake.at(-1).y,
+	};
 
   if(e.keyCode === 37)
-		direction = 3;
+		snake[snake.length - 1].d = 3;
   else if(e.keyCode === 38)
-		direction = 4;
+		snake[snake.length - 1].d = 4;
   else if(e.keyCode === 39)
-		direction = 1;
+		snake[snake.length - 1].d = 1;
   else if(e.keyCode === 40)
-		direction = 2;
+		snake[snake.length - 1].d = 2;
 
 }
 
+//Toma la dirección del más cercano
+const nearDirection = (direct,ind) => {
+
+	for(let j = ind; j < snake.length; j++){
+		if(direct != snake[j].d){
+			console.log(snake[j].d);
+			return snake[j].d;
+		}
+	}
+
+}
