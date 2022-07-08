@@ -5,16 +5,16 @@ const $btn = d.querySelector("#start");
 const ctx = $snake.getContext("2d");
 
 const snake = [
-	{x:20, y:20, d:1},
-	{x:40, y:20, d:1},
 	{x:60, y:20, d:1},
+	{x:40, y:20, d:1},
+	{x:20, y:20, d:1},
 ]
 
 //direccion que va tomando la serpiente
 let direction = 1;
 
 //coordenadas de la cominda de la serpiente
-let foodX = 30, foodY = 30;
+let foodX = undefined, foodY = undefined;
 
 d.addEventListener("DOMContentLoaded", () => {
 	init();
@@ -56,26 +56,31 @@ const ereaseSnake = () =>{
 
 const foodSnake = () => {
 	ramdomCoordinates();	
+	console.log(foodX,foodY);
+		console.log(foodY % 20);
 	ctx.fillStyle = "#C0392B"
 	ctx.fillRect(foodX,foodY,20,20);
 }
 
 const ramdomCoordinates = () => {
-	while((foodX % 20 != 0) && (foodY % 20 != 0)){
-		foodX = Math.floor(Math.random() * $snake.width);
-		foodY = Math.floor(Math.random() * $snake.height);
-	}
+	foodX = Math.floor(((Math.random() * 40) + 1)) * 20;
+	foodY = Math.floor(((Math.random() * 40) + 1)) * 20;
+
+	if(foodX > snake.width)
+		foodX = snake.width - 20;
+	if(foodY > snake.height)
+		foodY = snake.height - 20;
+
 }
 
 const playSnake = () => {
 	setInterval(() => {
 		ereaseSnake();
-		snake.forEach( (el,i) => { 
-			
-			if(el == snake[snake.length - 1])
-				el.d = direction;
-			else 
-				el.d = snake[i + 1].d;
+
+		for(let i = snake.length - 1; i >= 0; i--){
+			let el = snake[i];
+
+			el.d = (i != 0) ? snake[i - 1].d : direction;
 
 			if( el.d == 1 )
 				el.x = el.x + 20;
@@ -86,11 +91,11 @@ const playSnake = () => {
 			else if( el.d == 4 )
 				el.y = el.y - 20;
 
-		});
+		}
 
-		if(snake.at(-1).x === foodX && snake.at(-1).y === foodY){
+		if(snake[0].x === foodX && snake[0].y === foodY){
 			foodSnake();
-
+			snake.push({x:snake.at(-1).x - 20, y:snake.at(-1).y, d:snake.at(-1).d})
 		}
 
 		drawSnake();
