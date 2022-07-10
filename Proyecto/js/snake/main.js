@@ -16,6 +16,9 @@ let direction = 1;
 //coordenadas de la cominda de la serpiente
 let foodX = undefined, foodY = undefined;
 
+//guarda el ultimo rectangulo para agregarlo
+let rectAdd = null;
+
 d.addEventListener("DOMContentLoaded", () => {
 	init();
 	
@@ -55,27 +58,18 @@ const ereaseSnake = () =>{
 }
 
 const foodSnake = () => {
-	ramdomCoordinates();	
-	console.log(foodX,foodY);
-		console.log(foodY % 20);
+	foodX = Math.floor(((Math.random() * (($snake.width / 20) -1 )) + 1)) * 20;
+	foodY = Math.floor(((Math.random() * (($snake.height / 20) -1 )) + 1)) * 20;
+
 	ctx.fillStyle = "#C0392B"
 	ctx.fillRect(foodX,foodY,20,20);
-}
-
-const ramdomCoordinates = () => {
-	foodX = Math.floor(((Math.random() * 40) + 1)) * 20;
-	foodY = Math.floor(((Math.random() * 40) + 1)) * 20;
-
-	if(foodX > snake.width)
-		foodX = snake.width - 20;
-	if(foodY > snake.height)
-		foodY = snake.height - 20;
-
 }
 
 const playSnake = () => {
 	setInterval(() => {
 		ereaseSnake();
+
+		rectAdd = snake[snake.length - 1];
 
 		for(let i = snake.length - 1; i >= 0; i--){
 			let el = snake[i];
@@ -95,7 +89,8 @@ const playSnake = () => {
 
 		if(snake[0].x === foodX && snake[0].y === foodY){
 			foodSnake();
-			snake.push({x:snake.at(-1).x - 20, y:snake.at(-1).y, d:snake.at(-1).d})
+			snake.push(rectAdd);
+			console.log(snake);
 		}
 
 		drawSnake();
