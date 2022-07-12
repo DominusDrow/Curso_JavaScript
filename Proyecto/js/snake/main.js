@@ -69,7 +69,11 @@ const playSnake = () => {
 	setInterval(() => {
 		ereaseSnake();
 
-		rectAdd = snake[snake.length - 1];
+		rectAdd = {
+			x:snake.at(-1).x,
+			y:snake.at(-1).y,
+			d:snake.at(-1).d,
+		} 
 
 		for(let i = snake.length - 1; i >= 0; i--){
 			let el = snake[i];
@@ -90,15 +94,35 @@ const playSnake = () => {
 		if(snake[0].x === foodX && snake[0].y === foodY){
 			foodSnake();
 			snake.push(rectAdd);
-			console.log(snake);
+		}
+
+		if(snake[0].x < 0 || snake[0].y < 0 || snake[0].x >= $snake.width || snake[0].y >= $snake.height || colitionsSelf()){
+			snake.length = 0;
+				
+			snake.push({x:60, y:20, d:1});
+			snake.push({x:40, y:20, d:1});
+			snake.push({x:20, y:20, d:1});
+
+			direction = 1;
 		}
 
 		drawSnake();
 	},200)
 }
 
+const colitionsSelf = () => {
+	for(let i = 0; i <= snake.length - 1; i++)
+		for(let j = i + 1; j <= snake.length - 1; j++)
+			if(snake[i].x == snake[j].x && snake[i].y == snake[j].y)
+				return true;
+
+	return false;
+}
+
 
 const moveSnake = e => {
+	if(e.keyCode >= 37 && e.keyCode <= 40)
+		e.preventDefault();
 
   if(e.keyCode === 37 && direction != 1)
 		direction = 3;
