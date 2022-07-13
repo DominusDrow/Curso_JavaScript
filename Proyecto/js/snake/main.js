@@ -12,12 +12,12 @@ const snake = [
 
 //direccion que va tomando la serpiente
 let direction = 1;
-
 //coordenadas de la cominda de la serpiente
 let foodX = undefined, foodY = undefined;
-
 //guarda el ultimo rectangulo para agregarlo
 let rectAdd = null;
+//la velocidad a la que va la snake
+let fps = 200;
 
 d.addEventListener("DOMContentLoaded", () => {
 	init();
@@ -52,9 +52,8 @@ const drawSnake = () =>{
 
 const ereaseSnake = () =>{
 	ctx.fillStyle = "#042001"
-	for(let el  of snake){
+	for(let el of snake)
 		ctx.fillRect(el.x,el.y,20,20);
-	}
 }
 
 const foodSnake = () => {
@@ -94,6 +93,7 @@ const playSnake = () => {
 		if(snake[0].x === foodX && snake[0].y === foodY){
 			foodSnake();
 			snake.push(rectAdd);
+			fps = fps * 0.50;
 		}
 
 		if(snake[0].x < 0 || snake[0].y < 0 || snake[0].x >= $snake.width || snake[0].y >= $snake.height || colitionsSelf()){
@@ -107,7 +107,7 @@ const playSnake = () => {
 		}
 
 		drawSnake();
-	},200)
+	},fps)
 }
 
 const colitionsSelf = () => {
