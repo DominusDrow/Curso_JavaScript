@@ -15,6 +15,7 @@ import giveaway from "./dom/digitalLottery.js";
 import slider from "./dom/responsiveSlider.js";
 import newMenu  from "./dom/scrollspy.js";
 import smartVideo from "./dom/SmartVideo.js"
+import { tabDetect } from "./dom/SmartVideo.js";
 
 const d = document;
 
@@ -68,6 +69,11 @@ d.addEventListener("keydown", (e) => {
     moveBall(e,".ball",".event-keys");
     
 })
+
+d.addEventListener("visibilitychange", e => {
+    tabDetect(".video");
+
+} )
 
 //los eventos de conecion no se cargan junto con el documento
 connection();
