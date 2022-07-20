@@ -3,10 +3,14 @@ const d = document;
 
 const callback = entries => {
   try{
-    if(entries[0].isIntersecting)
-      entries[0].target.play();
-    else
-      entries[0].target.pause();
+    entries.forEach(entry => {
+      if(entry.isIntersecting)
+        entry.target.play();
+      else
+        entry.target.pause();
+
+      d.addEventListener("visibilitychange", e => d.visibilityState === "visible" ? entry.target.play() : entry.target.pause());
+    })
   }
   catch(err){
     alert("Active los permisos de autoplay");
@@ -22,28 +26,12 @@ export default function smartVideo (video){
     let options = {
       root: null,
       rootMargin: '0px',
-      threshold: 1.0
+      threshold: 0.7,
     }
 
     let observer = new IntersectionObserver(callback, options);
     
-    observer.observe($video[0]);
-    observer.observe($video[1]);
+  $video.forEach(el => observer.observe(el));
 
-}
-
-//Detecta cuando el usuario abandona la pestaña y pausa el video
-export function tabDetect(video){
-  const $video = d.querySelectorAll(video);
-
-  try{
-    if(d["hidden"])
-      $video.forEach(el => {
-        el.pause();
-      })
-  }
-  catch(err){
-    alert("Active los permisos de autoplay");
-  }
 }
 
