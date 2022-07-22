@@ -15,6 +15,7 @@ import giveaway from "./dom/digitalLottery.js";
 import slider from "./dom/responsiveSlider.js";
 import newMenu  from "./dom/scrollspy.js";
 import smartVideo from "./dom/SmartVideo.js"
+import expValitation from "./dom/formValidation.js";
 
 const d = document;
 
@@ -60,6 +61,8 @@ d.addEventListener("DOMContentLoaded", () => {
     newMenu(".panel", ".menu", "(min-width: 1024px)");
 
     smartVideo(".video");
+
+    expValitation(".formValidation");
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre
