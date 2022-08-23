@@ -10,19 +10,19 @@ export default function expValitation(form){
     const $coments = $form.querySelector("input[name='coments']");
 
     //regular expresions to evalue
-    let name = /^[a-z]{10}/;
-    let email = /[a-z | 0-1]{30}@[a-z]{15}.[a-z]{10}/;
+    let name = /^\w{3,20}$/i;
+    let email = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i;
     
     
 
     d.addEventListener("keyup", e => {
         if(e.target == $name){
-            //if(name.test($name.value))
-                console.log(name.test($name.value));
+            if(name.test($name.value))
+                console.log("nombre valido");
         }
         if(e.target == $email){
             if(email.test($email.value))
-                console.log("correo no valido");
+                console.log("correo valido");
         }
     })
 
