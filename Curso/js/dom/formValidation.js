@@ -12,6 +12,8 @@ export default function expValitation(form){
     //regular expresions to evalue
     let name = /^\w{3,20}$/i;
     let email = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i;
+    let affair = /^\D{10,20}/i;
+    let coments = /^\D{10,300}$/i;
     
     
 
@@ -23,6 +25,14 @@ export default function expValitation(form){
         if(e.target == $email){
             if(email.test($email.value))
                 console.log("correo valido");
+        }
+        if(e.target == $affair){
+            if(affair.test($affair.value))
+                console.log("asunto valido");
+        }
+        if(e.target == $coments){
+            if(coments.test($coments.value))
+                console.log("comentario valido");
         }
     })
 

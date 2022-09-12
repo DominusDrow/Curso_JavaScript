@@ -175,12 +175,16 @@
         <section id="seccion14" class="section" data-scroll-spy>
             <h2>Validación Formularios</h2>
             <form class="formValidation">
-                <input class="form" type="text" name="name" placeholder="typig your nickname">
-                <input class="form" type="text" name="email" placeholder="typing your email">
-                <input class="form" type="text" name="affair" placeholder="affair">
-                <input class="form" type="textArea" name="coments" placeholder="coments">
-                <input class="form" type="submit" value="send info" disabled>
+                <legend>Envíanos tus comentarios</legend>
+                <input type="text" name="name" placeholder="typig your nickname" title="only letters and spaces" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required>
+                <input type="text" name="email" placeholder="typing your email" title="incorrect email" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+                <input type="text" name="affair" placeholder="affair" title="required subject" required>
+                <textArea name="coments" cols="50" rows="5" placeholder="write your coments" title="required coments" data-pattern="^.{1,255}$" required>
+                <input type="submit" value="send info">
             </form>
+            <div="formValidation-loader">
+
+            </div>
         </section>
 
 
