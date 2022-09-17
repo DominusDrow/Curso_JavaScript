@@ -418,3 +418,18 @@ header h1{
 	width: 80%;
 }
 
+.formValidation *{
+	padding: 0.5rem;
+	margin: 1rem auto;
+	display: block;
+	width: 100%;
+}
+
+.formValidation textArea {
+	resize: none;
+}
+
+.formValidation legend,
+.formValidation {
+
+}
