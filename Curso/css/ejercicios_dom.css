@@ -430,6 +430,82 @@ header h1{
 }
 
 .formValidation legend,
-.formValidation {
+.contact-form-response{
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-align: center;
 
 }
+
+.formValidation input,
+.formValidation textArea{
+	font-size: 1rem;
+	font-family: sans-serif;
+}
+
+.formValidation input[type="submit"]{
+	width: 50%;
+	margin: 2rem auto;
+	cursor: pointer;
+}
+
+.formValidation *::placeholder{
+	color: #000;
+}
+
+.formValidation [required]:valid{
+	border: thin solid var(--form-ok-color);
+}
+
+.formValidation [required]:invalid{
+	border: thin solid var(--form-error-color);
+}
+
+.contact-form-error{
+	margin-top: -1rem;
+	font-size: 80%;
+	background-color: var(--form-error-color);
+	text-align: center;
+	color: #fff;
+	transition: all 800ms ease;
+}
+
+.contact-form-error.is-active{
+	display: block;
+	animation: show-message 1s 1 normal 0s ease-out both;
+}
+
+.none{
+	display: none;
+}
+
+@keyframes show-message{
+	0%{
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	100%{
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
