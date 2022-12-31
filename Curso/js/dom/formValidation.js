@@ -31,5 +31,23 @@ export default function expValidation(form) {
         }
     });
 
+    d.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const $loader = d.querySelector(".formValidation-loader"),
+            $response = d.querySelector(".contact-form-response");
+
+        $loader.classList.remove("none");
+
+        setTimeout(() => {
+            $loader.classList.add("none");
+            $response.classList.remove("none");
+            $response.innerHTML = `<p>Los datos fueron enviados correctamente</p>`;
+
+            d.querySelector(form).reset();
+
+            setTimeout(() => $response.classList.add("none"), 2000);
+        }, 2000);
+    });
+
 }
 
