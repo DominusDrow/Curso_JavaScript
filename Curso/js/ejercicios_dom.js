@@ -16,6 +16,7 @@ import slider from "./dom/responsiveSlider.js";
 import newMenu  from "./dom/scrollspy.js";
 import smartVideo from "./dom/SmartVideo.js"
 import expValitation from "./dom/formValidation.js";
+import speechSynthesis from "./dom/speechSynthesis.js";
 
 const d = document;
 
@@ -63,6 +64,8 @@ d.addEventListener("DOMContentLoaded", () => {
     smartVideo(".video");
 
     expValitation(".formValidation");
+
+    speechSynthesis(".voices",".textToVoice",".read");
 })
 
 //los eventos de teclado deben desencadenarse directamente del archivo padre

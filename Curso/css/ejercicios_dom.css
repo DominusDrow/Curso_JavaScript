@@ -496,6 +496,25 @@ header h1{
 }
 
 
+/*************** SPEACH SINTESIS ***************/
+
+.voices{
+	display: flex;
+	margin-left: 40%;
+	width: 20%;
+	flex-direction: column;
+	align-items: center;
+}
+
+.textToVoice{
+	width: 80%;
+	margin: 1rem auto;
+}
+
+.read {
+	width: 50%;
+	margin: 1rem auto;
+}
 
 
 
