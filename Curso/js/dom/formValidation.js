@@ -1,39 +1,35 @@
-
 const d = document;
 
-export default function expValitation(form){
-    const $form = d.querySelector(form);
+export default function expValidation(form) {
+    const $inputs = d.querySelectorAll(form + " [required]");
 
-    const $name = $form.querySelector("input[name='name']");
-    const $email = $form.querySelector("input[name='email']");
-    const $affair = $form.querySelector("input[name='affair']");
-    const $coments = $form.querySelector("input[name='coments']");
+    $inputs.forEach((input) => {
+        const $span = d.createElement("span");
+        $span.id = input.name;
+        $span.textContent = input.title;
+        $span.classList.add("contact-form-error", "none");
+        input.insertAdjacentElement("afterend", $span);
+    });
 
-    //regular expresions to evalue
-    let name = /^\w{3,20}$/i;
-    let email = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i;
-    let affair = /^\D{10,20}/i;
-    let coments = /^\D{10,300}$/i;
-    
-    
+    d.addEventListener("keyup", (e) => {
+        if (e.target.matches(form + " [required]")) {
+            let $input = e.target,
+                pattern = $input.pattern || $input.dataset.pattern;
 
-    d.addEventListener("keyup", e => {
-        if(e.target == $name){
-            if(name.test($name.value))
-                console.log("nombre valido");
+            if (pattern && $input.value !== "") {
+                let regex = new RegExp(pattern);
+                return !regex.exec($input.value)
+                    ? d.getElementById($input.name).classList.add("is-active")
+                    : d.getElementById($input.name).classList.remove("is-active");
+            }
+
+            if (!pattern) {
+                return $input.value === ""
+                    ? d.getElementById($input.name).classList.add("is-active")
+                    : d.getElementById($input.name).classList.remove("is-active");
+            }
         }
-        if(e.target == $email){
-            if(email.test($email.value))
-                console.log("correo valido");
-        }
-        if(e.target == $affair){
-            if(affair.test($affair.value))
-                console.log("asunto valido");
-        }
-        if(e.target == $coments){
-            if(coments.test($coments.value))
-                console.log("comentario valido");
-        }
-    })
+    });
 
 }
+
