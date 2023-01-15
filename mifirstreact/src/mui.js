@@ -5,20 +5,21 @@ import { useState, useEffect } from "react";
 
 export const GetAvatar = () => {
 
-	const [data, setData] = useState({hits: []});
+	const [data, setData] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			const result = await axios('https://jsonplaceholder.typicode.com/users')
 			setData(result.data);
-			console.log(data);
 		}
 		fetchData();
 	}, []);
 
+
+			console.log(data);
 	return (
 		<div>
-			{data.hits.map(item => (
+			{data.map(item => (
 				<div key={item.id}>
 					<Stack direction="row" spacing={2}>
 						<Avatar alt={item.name} src={`https://robohash.org/user${item.id}`} />
