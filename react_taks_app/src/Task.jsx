@@ -1,13 +1,5 @@
-import { tasks as data } from "./task";
-import { useState, useEffect } from "react";
 
-export const Task = () => {
-  const [tasks, setTasks] = useState(data);
-
-  useEffect(() => {
-    setTasks(data);
-  }, []);
-
+export const Task = ({tasks}) => {
   return (
     <div>
       {tasks.map((task) => (
