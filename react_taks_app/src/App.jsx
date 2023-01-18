@@ -13,8 +13,8 @@ function App() {
   const addTask = (task) => {
     setTasks([...tasks, {
       id: tasks.length + 1,
-      name: task,
-      description: "This is a task",
+      name: task.value,
+      description: task.description
     }]);
   };
 
