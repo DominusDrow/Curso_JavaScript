@@ -1,7 +1,7 @@
-import {Task} from './Task'
-import { tasks as data } from "./task";
+import {Task} from './components/Task';
+import { tasks as data } from "./data/task";
 import { useState, useEffect } from "react";
-import { TaskForm } from "./TaskForm";
+import { TaskForm } from "./components/TaskForm";
 
 function App() {
   const [tasks, setTasks] = useState(data);
