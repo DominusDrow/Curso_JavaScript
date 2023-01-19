@@ -1,12 +1,10 @@
+import { TaskCard } from "./TaskCard";
 
-export const Task = ({tasks}) => {
+export const Task = ({tasks, deleteTask}) => {
   return (
     <div>
       {tasks.map((task) => (
-        <div key={task.id}>
-          <h2>{task.name}</h2>
-          <p>{task.description}</p>
-        </div>
+        <TaskCard key={task.id} task={task} deleteTask={deleteTask} />
       ))}
     </div>
   );

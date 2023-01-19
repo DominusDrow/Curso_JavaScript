@@ -18,11 +18,16 @@ function App() {
     }]);
   };
 
+  const deleteTask = (id) => {
+    const newTasks = tasks.filter(task => task.id !== id);
+    setTasks(newTasks);
+  };
+
   return (
     <div >
       <h1>React App</h1>
-      <TaskForm addTask={addTask} />
-      <Task tasks={tasks} />
+      <TaskForm addTask={addTask}/>
+      <Task tasks={tasks} deleteTask={deleteTask} />
     </div>
   )
 }
