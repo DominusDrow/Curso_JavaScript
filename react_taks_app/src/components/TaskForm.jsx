@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TaskContext } from "../contex/TaskContex";
 
-export const TaskForm = ({ addTask }) => {
+export const TaskForm = () => {
   const [value, setValue] = useState('');
   const [description, setDescription] = useState('');
+  const {addTask} = useContext(TaskContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
