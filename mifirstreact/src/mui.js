@@ -16,7 +16,6 @@ export const GetAvatar = () => {
 	}, []);
 
 
-			console.log(data);
 	return (
 		<div>
 			{data.map(item => (
