@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import * as Sharing from 'expo-sharing';
 
 const App = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -25,11 +26,16 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Pick an image!</Text>
-      <Image source={{uri:selectedImage.localUri || "https://picsum.photos/200/300"}} style={styles.image} />
+      <TouchableOpacity onPress={openImagePickerAsync}>
+        <Image source={{ uri: selectedImage !== null 
+          ? selectedImage.localUri 
+          : "https://picsum.photos/200/300" }} 
+          style={styles.image} />
+      </TouchableOpacity>
       <TouchableOpacity 
         style={styles.button} 
         onPress={openImagePickerAsync}>
-        <Text style={styles.buttonText}>Select a image</Text>
+        <Text style={styles.buttonText}>Share</Text>
       </TouchableOpacity>
     </View>
   );
